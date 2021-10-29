@@ -18,4 +18,4 @@ use App\Http\Controllers\ReviewsController;
 Route::get('/', [CategoryController::class, 'categories'])->name('category.index');
 Route::get('/categories/{name}', [CategoryController::class, 'categoriesId'])->name('category.id');
 Route::get('/categories/{name}/{name2}', [CategoryController::class, 'categoriesChild'])->name('category.child');
-Route::get('/best-{name}', [ReviewsController::class, 'reviews'])->name('reviews.index');
+Route::get('/{name}', [ReviewsController::class, 'reviews'])->name('reviews.index');

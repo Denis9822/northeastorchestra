@@ -3,9 +3,9 @@
 
     <link rel="stylesheet" href="{{ asset('assets/css/categoryChild.css') }}" type="text/css" />
 
-    @include('layouts.breadcrumb')
+    @include('layouts.breadcrumb', ['deep' => '3','name'=>$name,'name2'=>$name2])
     <div class="container space-2">
-        <h1 class="h2 mb-3">Refrigerators, Freezers &amp; Ice Makers List </h1>
+        <h1 class="h2 mb-3">{{$name2}} List </h1>
         <p class="text-muted">
             We researched and compared thousands of Refrigerators, Freezers &amp; Ice Makers to find the top picks for you.
             Read this 2021 ultimate guide before you buy.
@@ -38,27 +38,14 @@
                         <div id="sidebarNav" class="collapse navbar-collapse">
                             <div class="p-2 p-lg-0">
                                 <div class="mt-3 mt-lg-0">
-                                    <h2 class="h4">Appliances Categories</h2>
-                                    <a class="dropdown-item d-flex justify-content-between align-items-center px-0 active"
-                                        href="https://www.findthisbest.com/categories/appliances/refrigerators-freezers-ice-makers">
-                                        Refrigerators, Freezers &amp; Ice Makers
+                                    <h2 class="h4">{{$name}} Categories</h2>
+
+                                    @foreach($catsParent as $catParent)
+                                    <a class="dropdown-item d-flex justify-content-between align-items-center px-0  {{$name2 == $catParent->Sub_category ? 'active' : ''}}"
+                                        href="{{route('category.child',['name' => $catParent->Category, 'name2'=>$catParent->Sub_category])}}">
+                                        {{$catParent->Sub_category}}
                                     </a>
-                                    <a class="dropdown-item d-flex justify-content-between align-items-center px-0"
-                                        href="https://www.findthisbest.com/categories/appliances/laundry-appliances">
-                                        Laundry Appliances
-                                    </a>
-                                    <a class="dropdown-item d-flex justify-content-between align-items-center px-0"
-                                        href="https://www.findthisbest.com/categories/appliances/appliances-dishwashers">
-                                        Dishwashers
-                                    </a>
-                                    <a class="dropdown-item d-flex justify-content-between align-items-center px-0"
-                                        href="https://www.findthisbest.com/categories/appliances/ranges-ovens-cooktops">
-                                        Ranges, Ovens &amp; Cooktops
-                                    </a>
-                                    <a class="dropdown-item d-flex justify-content-between align-items-center px-0"
-                                        href="https://www.findthisbest.com/categories/appliances/large-appliance-accessories">
-                                        Large Appliance Accessories
-                                    </a>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -68,12 +55,13 @@
             <div class="col-lg-9 column-divider-lg">
                 <div class="ml-lg-2">
                     <div class="row mb-5">
+                        @foreach($cats as $cat)
                         <div class="col-md-6 mb-5">
                             <div class="card border h-100 p-3">
                                 <div class="media">
                                     <div class="avatar avatar-lg mr-3">
                                         <a class="text-inherit"
-                                            href="https://www.findthisbest.com/best-upright-freezers"><img
+                                            href="{{route('reviews.index',['name'=>$cat->URL])}}"><img
                                                 class="avatar-img lazyload"
                                                 src="https://m.media-amazon.com/images/I/31u1dq+IUxL._SL500_.jpg"
                                                 data-src="https://m.media-amazon.com/images/I/31u1dq+IUxL._SL500_.jpg"
@@ -81,141 +69,15 @@
                                     </div>
                                     <div class="media-body">
                                         <h5 class="h6"><a class="text-inherit"
-                                                href="https://www.findthisbest.com/best-upright-freezers">Upright
-                                                Freezers</a></h5>
+                                                href="{{route('reviews.index',['name'=>$cat->URL])}}">{{$cat->Title}}</a></h5>
                                         <div class="text-body font-size-1">
-                                            <span>29,451 reviews analyzed</span>
+                                            <span>{{number_format($cat->Num_products_total)}} reviews analyzed</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-5">
-                            <div class="card border h-100 p-3">
-                                <div class="media">
-                                    <div class="avatar avatar-lg mr-3">
-                                        <a class="text-inherit"
-                                            href="https://www.findthisbest.com/best-chest-freezers"><img
-                                                class="avatar-img lazyload"
-                                                src="https://m.media-amazon.com/images/I/31uZis2ZraL._SL500_.jpg"
-                                                data-src="https://m.media-amazon.com/images/I/31uZis2ZraL._SL500_.jpg"
-                                                alt="Chest Freezers thumbnail" width="68" height="68"></a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="h6"><a class="text-inherit"
-                                                href="https://www.findthisbest.com/best-chest-freezers">Chest Freezers</a>
-                                        </h5>
-                                        <div class="text-body font-size-1">
-                                            <span>25,961 reviews analyzed</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-5">
-                            <div class="card border h-100 p-3">
-                                <div class="media">
-                                    <div class="avatar avatar-lg mr-3">
-                                        <a class="text-inherit" href="https://www.findthisbest.com/best-ice-makers"><img
-                                                class="avatar-img lazyload"
-                                                src="https://m.media-amazon.com/images/I/31EiFEFdIkS._SL500_.jpg"
-                                                data-src="https://m.media-amazon.com/images/I/31EiFEFdIkS._SL500_.jpg"
-                                                alt="Ice Makers thumbnail" width="68" height="68"></a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="h6"><a class="text-inherit"
-                                                href="https://www.findthisbest.com/best-ice-makers">Ice Makers</a></h5>
-                                        <div class="text-body font-size-1">
-                                            <span>117,790 reviews analyzed</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-5">
-                            <div class="card border h-100 p-3">
-                                <div class="media">
-                                    <div class="avatar avatar-lg mr-3">
-                                        <a class="text-inherit"
-                                            href="https://www.findthisbest.com/best-refrigerators"><img
-                                                class="avatar-img lazyload"
-                                                src="https://m.media-amazon.com/images/I/51fuMDyIqHL._SL500_.jpg"
-                                                data-src="https://m.media-amazon.com/images/I/51fuMDyIqHL._SL500_.jpg"
-                                                alt="Refrigerators thumbnail" width="68" height="68"></a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="h6"><a class="text-inherit"
-                                                href="https://www.findthisbest.com/best-refrigerators">Refrigerators</a>
-                                        </h5>
-                                        <div class="text-body font-size-1">
-                                            <span>5,245 reviews analyzed</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-5">
-                            <div class="card border h-100 p-3">
-                                <div class="media">
-                                    <div class="avatar avatar-lg mr-3">
-                                        <a class="text-inherit" href="https://www.findthisbest.com/best-freezers"><img
-                                                class="avatar-img lazyload"
-                                                src="https://m.media-amazon.com/images/I/31uZis2ZraL._SL500_.jpg"
-                                                data-src="https://m.media-amazon.com/images/I/31uZis2ZraL._SL500_.jpg"
-                                                alt="Freezers thumbnail" width="68" height="68"></a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="h6"><a class="text-inherit"
-                                                href="https://www.findthisbest.com/best-freezers">Freezers</a></h5>
-                                        <div class="text-body font-size-1">
-                                            <span>34,535 reviews analyzed</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-5">
-                            <div class="card border h-100 p-3">
-                                <div class="media">
-                                    <div class="avatar avatar-lg mr-3">
-                                        <a class="text-inherit"
-                                            href="https://www.findthisbest.com/best-beverage-refrigerators"><img
-                                                class="avatar-img lazyload"
-                                                src="https://m.media-amazon.com/images/I/51CugfHZVOL._SL500_.jpg"
-                                                data-src="https://m.media-amazon.com/images/I/51CugfHZVOL._SL500_.jpg"
-                                                alt="Beverage Refrigerators thumbnail" width="68" height="68"></a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="h6"><a class="text-inherit"
-                                                href="https://www.findthisbest.com/best-beverage-refrigerators">Beverage
-                                                Refrigerators</a></h5>
-                                        <div class="text-body font-size-1">
-                                            <span>24,924 reviews analyzed</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-5">
-                            <div class="card border h-100 p-3">
-                                <div class="media">
-                                    <div class="avatar avatar-lg mr-3">
-                                        <a class="text-inherit" href="https://www.findthisbest.com/best-kegerators"><img
-                                                class="avatar-img lazyload"
-                                                src="https://m.media-amazon.com/images/I/31dkhM1RY5L._SL500_.jpg"
-                                                data-src="https://m.media-amazon.com/images/I/31dkhM1RY5L._SL500_.jpg"
-                                                alt="Kegerators thumbnail" width="68" height="68"></a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="h6"><a class="text-inherit"
-                                                href="https://www.findthisbest.com/best-kegerators">Kegerators</a></h5>
-                                        <div class="text-body font-size-1">
-                                            <span>8,332 reviews analyzed</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="d-flex justify-content-between align-items-center mt-8">
                     </div>

@@ -5472,6 +5472,10 @@ fieldset:disabled .btn {
 .breadcrumb-item.active {
     color: #1e2022 !important;
 }
+.breadcrumb-item.active a
+{
+    color: #1e2022 !important;
+}
 
 .pagination {
     display: -ms-flexbox;
