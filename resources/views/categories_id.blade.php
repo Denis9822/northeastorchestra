@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="{{asset('assets/css/categoryId.css') }}" type="text/css" />
 
-    @include('layouts.breadcrumb')
+    @include('layouts.breadcrumb', ['deep' => '2','name'=>'sd'])
     <div class="gradient-y-overlay-sm-gray-900 bg-img-hero"
         style="background-image: url(https://cdn.findthisbest.com/assets/img/categories/appliances.jpg);">
         <div class="container space-top-2 position-relative z-index-2">

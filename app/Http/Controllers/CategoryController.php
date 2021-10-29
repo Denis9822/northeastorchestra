@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+
 class CategoryController extends Controller
 {
 
     public function categories()
     {
-        return view('categories');
+        $cat = Category::where('Sub_category','=',null)->get();
+        return view('categories',compact('cat'));
     }
-    public function categoriesId()
+    public function categoriesId($name)
     {
-        return view('categories_id');
+        $cat = Category::where('Category',$name)->where('Sub_category','=',null)->first();
+        return view('categories_id',compact('cat'));
     }
     public function categoriesChild()
     {

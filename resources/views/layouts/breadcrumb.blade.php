@@ -4,8 +4,11 @@
             <div class="col-md-8 py-2 mb-md-0">
                 <nav class="d-inline-block rounded" aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-no-gutter font-size-1 mb-0">
-                        <li class="breadcrumb-item"><a href="https://www.findthisbest.com">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Categories</li>
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item {{$deep == '1' ? 'active' : ''}}" aria-current="page">Categories</li>
+                        @if ($deep == 2)
+                            <li class="breadcrumb-item active" aria-current="page">{{$name}}</li>
+                        @endif
                     </ol>
                 </nav>
             </div>

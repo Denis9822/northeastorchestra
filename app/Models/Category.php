@@ -10,4 +10,10 @@ class Category extends Model
     use HasFactory;
     public $timestamps = false;
     protected $table = "categories";
+
+    public function childCategories()
+    {
+         return Category::where('Category','=',$this->Category)->where('Sub_Category','<>',null)->get();
+    }
+
 }

@@ -5470,7 +5470,7 @@ fieldset:disabled .btn {
 }
 
 .breadcrumb-item.active {
-    color: #8c98a4
+    color: #1e2022 !important;
 }
 
 .pagination {
@@ -17109,7 +17109,7 @@ input[type=number] {
 }
 
 .breadcrumb .breadcrumb-item {
-    color: #1e2022
+    color: #8c98a4;
 }
 
 .breadcrumb-light .breadcrumb-item {
