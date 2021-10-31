@@ -7,20 +7,36 @@
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <!-- CSS Implementing Plugins -->
-       
     <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap-icons/font/bootstrap-icons.css') }}"
         type="text/css" />
     <link rel="stylesheet" href="{{asset('assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.css') }}"
         type="text/css" />
     <link rel="stylesheet" href="{{asset('assets/css/theme.min.css') }}" type="text/css" />
-
+    <!-- Meta -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>FITNESS</title>
-    <meta name="description" lang="ru" content="#">
-    <meta name="keywords" content="#">
-    <meta property="og:title" content="#">
-    <meta property="og:type" content="#">
-    <meta property="og:description" content="#">
+
+    <title>{{$title ?? ''}}</title>
+    <meta name="description" content="{{$description ?? ''}}">
+    <link rel="canonical" href="{{url()->full()}}">
+    <meta content="en-US" http-equiv="Content-Language">
+    <meta content="$" name="currency">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="{{$title ?? ''}}">
+    <meta property="og:description" content="{{$description ?? ''}}">
+    <meta property="og:url" content="{{url()->full()}}">
+    <meta property="og:site_name" content="{{request()->getHost()}}">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="{{$section ?? ''}}">
+    <meta property="article:published_time" content="{{$published_time ?? ''}}">
+    <meta property="article:modified_time" content="{{$modified_time ?? ''}}">
+    <meta property="og:updated_time" content="{{$modified_time ?? ''}}">
+    <meta property="og:image" content="{{$image ?? ''}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@findthisbest">
+    <meta name="twitter:title" content="{{$title ?? ''}}">
+    <meta name="twitter:description" content="{{$description ?? ''}}">
+    <meta name="twitter:image" content="{{$image ?? ''}}">
+
 </head>
 
 <body>

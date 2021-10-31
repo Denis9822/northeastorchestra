@@ -5468,7 +5468,21 @@ fieldset:disabled .btn {
     color: #97a4af;
     content: var(--bs-breadcrumb-divider, "/")
 }
-
+.col-features-10
+{
+    margin-bottom: 1rem !important;
+    font-size: .875rem;
+    color: #677788!important;
+}
+.line-3-hidden
+{
+    overflow: hidden;
+    text-overflow: clip;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    padding-bottom: 1rem;
+}
 .breadcrumb-item.active {
     color: #1e2022 !important;
 }

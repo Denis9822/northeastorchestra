@@ -1,4 +1,7 @@
-@extends('layouts.index')
+@extends('layouts.index',[
+    'title' => "$cat->Category Guide of ".date('Y')." - Reviews by ".request()->getHost(),
+    'description' => "We researched thousands of $cat->Category products to find the top picks for you. Read this ".date('Y')." ultimate guide before you buy.",
+])
 @section('content')
 
 <link rel="stylesheet" href="{{asset('assets/css/categoryId.css') }}" type="text/css" />

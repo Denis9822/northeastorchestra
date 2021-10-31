@@ -14,6 +14,9 @@
                             <li class="breadcrumb-item" aria-current="page"><a href="{{route('category.id',['name' => $name])}}">{{$name}}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{$name2}}</li>
                         @endif
+                        @if ($deep == 4)
+                            <li class="breadcrumb-item active" aria-current="page">{{$name}}</li>
+                        @endif
                     </ol>
                 </nav>
             </div>

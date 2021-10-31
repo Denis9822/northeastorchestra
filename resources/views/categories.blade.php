@@ -1,4 +1,7 @@
-@extends('layouts.index')
+@extends('layouts.index',[
+    'title' => "All Categories of Reviews - FindThisBest",
+    'description' => "All categories to help you find the best: Electronics, Patio, Lawn & Garden Hot, Sports & Outdoors Hot and so on.",
+])
 @section('content')
 
 @include('layouts.breadcrumb', ['deep' => '1'])
