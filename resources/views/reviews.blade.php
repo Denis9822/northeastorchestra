@@ -267,7 +267,7 @@
                     <hr class="my-6">
                     <div style="">
                         <h4 class="mb-4 h5">Features</h4>
-                        <div class="line-3-hidden pb-0 collapseCourseDescriptionSection{{$product->Item_number}}">
+                        <div class="pb-0 collapseCourseDescriptionSection{{$product->Item_number}}">
                             {!! $product->ta_features!!}
                         </div>
                         <div class="collapse" id="collapseCourseDescriptionSection{{$product->Item_number}}" style="">
