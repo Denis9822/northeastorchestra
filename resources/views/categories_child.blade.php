@@ -67,7 +67,7 @@
                                             href="{{route('reviews.index',['name'=>$cat->URL])}}"><img
                                                 class="avatar-img lazyload"
                                                 data-original="{{$cat->reviewImage()}}"
-                                                data-src="{{$cat->reviewImage()}}"
+                                                src="{{$cat->reviewImage()}}"
                                                 alt="{{$cat->Title}}" width="68" height="68"></a>
                                     </div>
                                     <div class="media-body">

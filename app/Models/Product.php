@@ -39,8 +39,10 @@ class Product extends Model
     {
         $audios =  collect(explode(';', $this->t_audio));
         $audios = $audios->map(function ($name){
+
+            $name = substr($name,0,strlen($name)-2);
             $tt = explode('[[',$name);
-            return $tt[0];
+            return $tt;
         });
 
         return $audios;

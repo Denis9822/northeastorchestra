@@ -24,6 +24,7 @@ class ReviewsController extends Controller
         $author = Author::where('Category',$productInfo->Category)->where('Name',$productInfo->Author)->first();
         $featuresTopics = Review::where('Parent',$productInfo->Title)->get();
         $subCategories = Review::where('Sub_category',$productInfo->Sub_category)->where('Parent','<>',$productInfo->Parent)->get();
+
         return view('reviews',compact('products','name','productInfo','productsTop3','author','productsTop10','productsRandom10','featuresTopics','subCategories'));
     }
 }

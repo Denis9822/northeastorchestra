@@ -391,3 +391,11 @@
         display: none;
     }
 }
+.mb-2
+{
+    margin-bottom: 0.5rem !important;
+}
+.ml-2
+{
+    margin-left: 0.5rem !important;
+}
