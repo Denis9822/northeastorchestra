@@ -267,7 +267,7 @@
                     <hr class="my-6">
                     <div style="">
                         <h4 class="mb-4 h5">Features</h4>
-                        <div class="pb-0 collapseCourseDescriptionSection{{$product->Item_number}}">
+                        <div class="pb-0 collap collapseCourseDescriptionSection{{$product->Item_number}}">
                             {!! $product->ta_features!!}
                         </div>
                         <div class="collapse" id="collapseCourseDescriptionSection{{$product->Item_number}}" style="">
@@ -417,6 +417,14 @@
         })
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
+        })
+        $('.collap').each(function (index,value){
+            $(this).children().children('.col-features-10').each(function (index,value){
+                if (index>2)
+                    $(this).hide();
+
+            })
+
         })
     </script>
 @endsection
