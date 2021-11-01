@@ -9,7 +9,6 @@ use Illuminate\Support\Carbon;
 class Review extends Model
 {
     use HasFactory;
-    public $timestamps = false;
     protected $table = "table_reviews";
 
     public function reviewImage()

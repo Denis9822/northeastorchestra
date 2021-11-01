@@ -40,7 +40,7 @@
                 <div class="col-sm-12 col-lg-4 mb-3">
                     <div class="card border shadow-none text-center h-100 d-none d-lg-block">
                         <div class="position-relative">
-                            <a href="https://buy.geni.us/Proxy.ashx?TSID=123727&amp;GR_URL=https%3A%2F%2Fwww.amazon.com%2Fdp%2FB0831RCGT1&amp;rf_source=amazon"
+                            <a href="{{($product->a_url == "null") ? $product->t_url : $product->a_url}}"
                                 rel="nofollow" target="_blank">
                                 <img style="height: 220px;object-fit: contain;padding: 2rem;" class="card-img-top"
                                     src="{{$product->ta_picture}}"
@@ -88,7 +88,34 @@
                                     Review</span></a>
                         </div>
                     </div>
-
+                    <div class="card border shadow-none text-center h-100 d-lg-none p-3">
+                        <div class="media">
+                            <div class="avatar avatar-lg mr-3">
+                                <a class="text-inherit"
+                                    href="{{($product->a_url == "null") ? $product->t_url : $product->a_url}}"
+                                    rel="nofollow" target="_blank">
+                                    <img class="avatar-img"
+                                         src="{{$product->ta_picture}}"
+                                         alt="{{$product}}"
+                                        width="68" height="68"></a>
+                            </div>
+                            <div class="media-body text-left">
+                                <h5 class="h6"
+                                    style="height: 40px;overflow: hidden;white-space: wrap;word-wrap: break-word;word-break: break-all;">
+                                    <a class="text-inherit"
+                                        href="{{($product->a_url == "null") ? $product->t_url : $product->a_url}}"
+                                        rel="nofollow" target="_blank">
+                                        {{$product->ta_name}}
+                                    </a>
+                                </h5>
+                                <div class="text-body font-size-1">
+                                    <span class="badge badge-soft-primary">
+                                        <span class="legend-indicator bg-primary"></span>TOP {{ $loop->index+1 }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 @endforeach
             </div>

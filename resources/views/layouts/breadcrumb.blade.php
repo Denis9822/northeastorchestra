@@ -15,8 +15,8 @@
                             <li class="breadcrumb-item active" aria-current="page">{{$name2}}</li>
                         @endif
                         @if ($deep == 4)
-                            <li class="breadcrumb-item" aria-current="page"><a href="{{$productInfo->getUrlCategory()}}">{{$productInfo->Sub_category}}</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{$productInfo->Title}}</li>
+                            <li class="breadcrumb-item dms-none" aria-current="page"><a href="{{$productInfo->getUrlCategory()}}">{{$productInfo->Sub_category}}</a></li>
+                            <li class="breadcrumb-item active dm-none" aria-current="page">{{$productInfo->Title}}</li>
                         @endif
                     </ol>
                 </nav>

@@ -377,3 +377,17 @@
 .pt-3, .py-3 {
     padding-top: 0.75rem !important;
 }
+.text-left
+{
+    text-align: left !important;
+}
+@media (max-width: 600px) {
+    .dm-none {
+        display: none;
+    }
+}
+@media (max-width: 420px) {
+    .dms-none {
+        display: none;
+    }
+}
