@@ -10,7 +10,7 @@
     <div class="container space-2">
         <h1 class="h2 mb-3">{{$name2}} List </h1>
         <p class="text-muted">
-            We researched and compared thousands of Refrigerators, Freezers &amp; Ice Makers to find the top picks for you.
+            We researched and compared thousands of {{$name2}} to find the top picks for you.
             Read this 2021 ultimate guide before you buy.
         </p>
         <div class="row mt-8">
