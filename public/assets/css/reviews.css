@@ -362,3 +362,18 @@
 .space-top-1 {
     padding-top: 2rem !important;
 }
+
+.btn-pill {
+    border-radius: 6.1875rem;
+}
+.btn-outline-primary {
+    color: #377dff;
+    border-color: #377dff;
+}
+.img-fluid, .img-thumbnail {
+    max-width: 100%;
+    height: auto;
+}
+.pt-3, .py-3 {
+    padding-top: 0.75rem !important;
+}

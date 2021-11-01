@@ -11,11 +11,12 @@
                             <li class="breadcrumb-item active" aria-current="page">{{$name}}</li>
                         @endif
                         @if ($deep == 3)
-                            <li class="breadcrumb-item" aria-current="page"><a href="{{route('category.id',['name' => $name])}}">{{$name}}</a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="{{$url}}">{{$name}}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{$name2}}</li>
                         @endif
                         @if ($deep == 4)
-                            <li class="breadcrumb-item active" aria-current="page">{{$name}}</li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="{{$productInfo->getUrlCategory()}}">{{$productInfo->Sub_category}}</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{$productInfo->Title}}</li>
                         @endif
                     </ol>
                 </nav>

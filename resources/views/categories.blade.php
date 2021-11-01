@@ -18,12 +18,12 @@
                     alt="{{$category->Category}}">
                 <div class="card-body">
                     <h3 class="h4 text-cap mb-2"><a
-                            href="{{route('category.id',['name' => $category->Category])}}">{{$category->Category}}</a></h3>
+                            href="{{$category->URL}}">{{$category->Category}}</a></h3>
                     <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2">
                         <li class="nav-item">
                             @foreach($category->childCategories() as $childCategory)
                             <a class="nav-link"
-                                href="{{route('category.child',['name' => $childCategory->Category, 'name2'=>$childCategory->Sub_category])}}">
+                                href="{{$childCategory->URL}}">
                                 {{$childCategory->Sub_category}}
                             </a>
                             @endforeach
@@ -34,120 +34,7 @@
         </div>
         @endforeach
     </div>
-    <div class="mt-5">
-        <div class="text-center mt-5">
-            <ul class="nav nav-segment">
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory">HOT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/a">A</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/b">B</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/c">C</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/d">D</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/e">E</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/f">F</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/g">G</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/h">H</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/i">I</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/j">J</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/k">K</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/l">L</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/m">M</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/n">N</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/o">O</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/p">P</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/q">Q</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/r">R</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/s">S</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/t">T</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/u">U</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/v">V</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/w">W</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/x">X</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/y">Y</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="padding:.625rem .95rem;"
-                        href="https://www.findthisbest.com/topics-directory/z">Z</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+
 </div>
 
 @endsection

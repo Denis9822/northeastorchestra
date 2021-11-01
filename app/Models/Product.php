@@ -10,7 +10,7 @@ class Product extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $table = "products";
+    protected $table = "table_products";
 
     public function option($index)
     {
@@ -33,5 +33,16 @@ class Product extends Model
         }
         else
             return null;
+    }
+
+    public function audios()
+    {
+        $audios =  collect(explode(';', $this->t_audio));
+        $audios = $audios->map(function ($name){
+            $tt = explode('[[',$name);
+            return $tt[0];
+        });
+
+        return $audios;
     }
 }

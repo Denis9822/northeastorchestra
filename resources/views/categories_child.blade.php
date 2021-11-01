@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="{{ asset('assets/css/categoryChild.css') }}" type="text/css" />
 
-    @include('layouts.breadcrumb', ['deep' => '3','name'=>$name,'name2'=>$name2])
+    @include('layouts.breadcrumb', ['deep' => '3','name'=>$name,'name2'=>$name2,'url'=>$catParent->URL])
     <div class="container space-2">
         <h1 class="h2 mb-3">{{$name2}} List </h1>
         <p class="text-muted">
@@ -45,7 +45,7 @@
 
                                     @foreach($catsParent as $catParent)
                                     <a class="dropdown-item d-flex justify-content-between align-items-center px-0  {{$name2 == $catParent->Sub_category ? 'active' : ''}}"
-                                        href="{{route('category.child',['name' => $catParent->Category, 'name2'=>$catParent->Sub_category])}}">
+                                        href="{{$catParent->URL}}">
                                         {{$catParent->Sub_category}}
                                     </a>
                                     @endforeach
@@ -66,9 +66,9 @@
                                         <a class="text-inherit"
                                             href="{{route('reviews.index',['name'=>$cat->URL])}}"><img
                                                 class="avatar-img lazyload"
-                                                src="https://m.media-amazon.com/images/I/31u1dq+IUxL._SL500_.jpg"
-                                                data-src="https://m.media-amazon.com/images/I/31u1dq+IUxL._SL500_.jpg"
-                                                alt="Upright Freezers thumbnail" width="68" height="68"></a>
+                                                data-original="{{$cat->reviewImage()}}"
+                                                data-src="{{$cat->reviewImage()}}"
+                                                alt="{{$cat->Title}}" width="68" height="68"></a>
                                     </div>
                                     <div class="media-body">
                                         <h5 class="h6"><a class="text-inherit"

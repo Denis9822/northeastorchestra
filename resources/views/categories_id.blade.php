@@ -28,7 +28,7 @@
                         <div class="card-body">
                             <h5 class="card-title mb-4 text-nowrap" style="overflow: hidden;">
                                 <a
-                                    href="{{route('category.child',['name' => $childCategory->Category, 'name2'=>$childCategory->Sub_category])}}">
+                                    href="{{$childCategory->URL}}">
                                     {{$childCategory->Sub_category}}</a>
                             </h5>
                             <p class="card-text">{{$childCategory->Number_of_reviews ?? 0}} topics</p>
@@ -48,9 +48,9 @@
                             <div class="avatar avatar-lg mr-3">
                                 <a class="text-inherit" href="{{route('reviews.index',['name'=>$review->URL])}}">
                                     <img class="avatar-img lazyload"
-                                        src="https://m.media-amazon.com/images/I/314jUDkncML._SL500_.jpg"
-                                        data-src="https://m.media-amazon.com/images/I/314jUDkncML._SL500_.jpg"
-                                        alt="Dishwashers thumbnail" width="68" height="68">
+                                         data-original="{{$review->reviewImage()}}"
+                                        data-src="{{$review->reviewImage()}}"
+                                        alt="{{$review->Title}}" width="68" height="68">
                                 </a>
                             </div>
                             <div class="media-body">

@@ -9,5 +9,5 @@ class Author extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $table = "authors";
+    protected $table = "table_authors";
 }

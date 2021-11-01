@@ -12,11 +12,12 @@ class ReviewsController extends Controller
     public function reviews($name,$name2 = null)
     {
         $productInfo = ($name2 != null) ? Review::where('URL',$name.'/'.$name2)->first() : Review::where('URL',$name)->first();
+        if($productInfo == null)
+            abort('404');
         $products = Product::whereIn('Item_number',explode(',',$productInfo->Item_numbers))->get();
         $scores = explode(',', $productInfo->Item_scores);
         foreach ($products as $key => $prod)
             $prod->score = $scores[$key];
-
         $productsTop3 = $products->take(3);
         $productsTop10 = ($products->count() > 9) ? $products->take(10) : $products->all();
         $productsRandom10 = ($products->count() > 9) ? $products->random(10): $products->random($products->count());
