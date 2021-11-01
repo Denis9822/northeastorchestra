@@ -2,9 +2,9 @@
     'title' => "Top $productInfo->Num_products_article Best $productInfo->Title of ".date('Y')." (Reviews) | Site.com",
     'description' => "What are the best $productInfo->Title in ".date('Y')."? We analyzed $productInfo->Num_reviews dedicated $productInfo->Title reviews to do the research for you.",
     'section' => $productInfo->Sub_category,
-    'published_time' => "2021-10-16T06:55:11+00:00",
-    'modified_time' => "2021-10-17T09:17:36+00:00",
-    'image' => "https://m.media-amazon.com/images/I/41ZjMBngw0L._SL500_.jpg",
+    'published_time' => $productInfo->created_at,
+    'modified_time' => $productInfo->updated_at,
+    'image' => 'https://northeastorchestra.org'.$products[0]->ta_picture,
 ])
 @section('content')
 
@@ -239,15 +239,17 @@
                         <div class="line-3-hidden pb-0">
                         @foreach($product->audios() as $audio)
                          @if ($loop->index < 2)
+                                    <span class="ml-2 mb-1 d-block"> {{$audio[1]}} </span>
                             <audio controls style="width: 100%;">
-                                <source src="{{$audio}}" type="audio/mpeg">
+                                <source src="{{$audio[0]}}" type="audio/mpeg">
                             </audio>
                             @endif
                         </div>
                         <div class="collapse" id="collapseAudioItem{{$product->Item_number}}" style="">
                             @if ($loop->index > 2)
+                                    <span class="ml-2 mb-1 d-block"> {{$audio[1]}} </span>
                                     <audio controls style="width: 100%;">
-                                        <source src="{{$audio}}" type="audio/mpeg">
+                                        <source src="{{$audio[0]}}" type="audio/mpeg">
                                     </audio>
                              @endif
                         @endforeach
@@ -263,7 +265,7 @@
                     @endif
 
                     <hr class="my-6">
-                    <div style="overflow: hidden;">
+                    <div style="">
                         <h4 class="mb-4 h5">Features</h4>
                         <div class="line-3-hidden pb-0 collapseCourseDescriptionSection{{$product->Item_number}}">
                             {!! $product->ta_features!!}

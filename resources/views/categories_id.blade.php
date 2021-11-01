@@ -8,7 +8,7 @@
 
     @include('layouts.breadcrumb', ['deep' => '2','name'=>$cat->Category])
     <div class="gradient-y-overlay-sm-gray-900 bg-img-hero"
-        style="background-image: url(https://cdn.findthisbest.com/assets/img/categories/appliances.jpg);">
+        style="background-image: url('{{$cat->Image}}'); background-repeat: no-repeat; background-size: 100%; background-position: center">
         <div class="container space-top-2 position-relative z-index-2">
             <div class="w-md-100 text-center mx-md-auto p-4 p-lg-7 mb-3 mb-sm-5 mb-lg-11">
                 <h1 class="text-white">
