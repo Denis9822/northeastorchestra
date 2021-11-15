@@ -32,7 +32,7 @@
                     </div>
                     <form action="/search">
                         <div class="card p-2 mb-3">
-                            <div class="form-row input-group-borderless">
+                            <div class="form-row input-group-borderless search">
                                 <div class="col-sm">
                                     <input type="text" name="query" class="form-control shadow-none" placeholder="Search..." aria-label="Search...">
                                 </div>

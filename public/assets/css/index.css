@@ -2,9 +2,7 @@
     position: absolute;
 }
 
-.header_index .nav-link {
-    color: hsla(0, 0%, 100%, .7) !important;
-}
+
 
 @media (min-width: 768px) {
     .space-bottom-md-4, .space-md-4 {
