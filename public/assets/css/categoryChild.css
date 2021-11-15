@@ -13,7 +13,10 @@
     color: #377dff;
     background-color: transparent;
 }
-
+.mr-2
+{
+    margin-right: 0.5rem;
+}
 .media {
     display: flex;
     align-items: flex-start;

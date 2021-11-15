@@ -1,6 +1,6 @@
 @extends('layouts.index',[
-    'title' => "$cat->Category Guide of ".date('Y')." - Reviews by ".request()->getHost(),
-    'description' => "We researched thousands of $cat->Category products to find the top picks for you. Read this ".date('Y')." ultimate guide before you buy.",
+    'title' => "$cat->Category | The ".date('Y')." Guide to $cat->Category",
+    'description' => "New to $cat->Category? Our lists will tell you everything you need to know, from our $cat->Category experts.",
 ])
 @section('content')
 
@@ -14,7 +14,7 @@
                 <h1 class="text-white">
                     {{$cat->Category}}
                 </h1>
-                <p class="text-white">Looking for the best products to buy? Find here the top appliances products</p>
+                <h2 class="text-white">All the latest {{$cat->Category}} news, reviews and tips</h2>
             </div>
         </div>
     </div>
@@ -26,11 +26,11 @@
                 <div class="col-sm-6 col-md-4 px-2">
                     <div class="card border mb-3">
                         <div class="card-body">
-                            <h5 class="card-title mb-4 text-nowrap" style="overflow: hidden;">
+                            <h3 class="card-title mb-4 text-nowrap" style="overflow: hidden; white-space: normal!important;">
                                 <a
                                     href="{{$childCategory->URL}}">
                                     {{$childCategory->Sub_category}}</a>
-                            </h5>
+                            </h3>
                             <p class="card-text">{{$childCategory->Number_of_reviews ?? 0}} topics</p>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
             </div>
         </div>
         @if($reviews)
-            <h2 class="mb-5 mt-5">Popular Lists</h2>
+            <h2 class="mb-5 mt-5">Latest {{$cat->Category}} Lists</h2>
             <div class="row mb-5">
                 @foreach($reviews as $review)
                 <div class="col-md-6 col-lg-4 mb-5">
@@ -49,13 +49,13 @@
                                 <a class="text-inherit" href="{{route('reviews.index',['name'=>$review->URL])}}">
                                     <img class="avatar-img lazyload"
                                          data-original="{{$review->reviewImage()}}"
-                                        data-src="{{$review->reviewImage()}}"
+                                        src="{{$review->reviewImage()}}"
                                         alt="{{$review->Title}}" width="68" height="68">
                                 </a>
                             </div>
                             <div class="media-body">
-                                <h5 class="h6"><a class="text-inherit"
-                                        href="{{route('reviews.index',['name'=>$review->URL])}}">{{$review->Title}}</a></h5>
+                                <h3 class="h6"><a class="text-inherit"
+                                        href="{{route('reviews.index',['name'=>$review->URL])}}">{{$review->Title}}</a></h3>
                                 <div class="text-body font-size-1">
                                     <span>{{number_format($review->Num_products_total)}} reviews analyzed</span>
                                 </div>

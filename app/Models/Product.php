@@ -12,18 +12,18 @@ class Product extends Model
     public $timestamps = false;
     protected $table = "table_products";
 
-    public function option($index)
+    public function option()
     {
-        $optionInd = explode(';',$this->ta_specs);
+        $optionInd =  collect(explode(';', $this->ta_specs));
 
-        if (isset($optionInd[$index])) {
-            $optionInd = explode('[[',$optionInd[$index]);
-            if ($optionInd=='none')
-                return null;
-            return $optionInd[0];
-        }
-        else
-            return null;
+        $options = $optionInd->map(function ($name){
+
+            $name = substr($name,0,strlen($name)-2);
+            $tt = explode('[[',$name);
+            return $tt;
+        });
+
+        return $options;
     }
     public function thumbnails()
     {
@@ -46,5 +46,19 @@ class Product extends Model
         });
 
         return $audios;
+    }
+
+    public function productLinks($title)
+    {
+        $id = $this->Item_number.',';
+        $links = Review::where('Item_numbers','like',$id."%")->where('Title','<>',$title)->take(3)->get();
+        return $links;
+    }
+
+    public function brandLinks($brand)
+    {
+        $id = $this->Item_number.',';
+        $links = Brand::where('Item_numbers','like',$id."%")->where('Brand','<>',$brand)->take(3)->get();
+        return $links;
     }
 }

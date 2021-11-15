@@ -12,7 +12,7 @@ class CategoryController extends Controller
     public function categories()
     {
         $cat = Category::where('Sub_category','=',null)->get();
-        return view('categories',compact('cat'));
+        return view('categories.categories',compact('cat'));
     }
     public function categoriesId($name)
     {
@@ -27,7 +27,7 @@ class CategoryController extends Controller
 
         }
 
-        return view('categories_id',compact('cat','reviews'));
+        return view('categories.categories_id',compact('cat','reviews'));
     }
     public function categoriesChild($name, $name2)
     {
@@ -41,6 +41,12 @@ class CategoryController extends Controller
         $catParent = Category::where('URL','/categories/'.$name)->first();
         $catsParent = Category::where('Category',$catParent->Category)->where('Sub_category','<>',null)->get();
         $name = $catParent->Category;
-        return view('categories_child',compact('name','name2','cats','catsParent','catParent'));
+        return view('categories.categories_child',compact('name','name2','cats','catsParent','catParent'));
+    }
+    public function category_directory($letter = null)
+    {
+
+        $reviews = ($letter == null) ? Review::inRandomOrder()->paginate(50) : Review::where('Title','like',$letter.'%')->inRandomOrder()->paginate(50);
+        return view('categories.directory',compact('reviews','letter'));
     }
 }

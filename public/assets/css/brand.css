@@ -1,0 +1,50 @@
+.space-2, .space-bottom-2 {
+    padding-bottom: 4rem !important;
+}
+
+.space-2, .space-top-2 {
+    padding-top: 4rem !important;
+}
+
+.media {
+    display: flex;
+    align-items: flex-start;
+}
+
+.mr-3, .mx-3 {
+    margin-right: 1rem !important;
+}
+
+.text-inherit {
+    color: inherit;
+}
+
+.badge-soft-warning {
+    color: #ec9a3c !important;
+}
+
+.badge-soft-warning {
+    color: #f5ca99;
+    background-color: rgba(245, 202, 153, .1);
+}
+
+.ml-1, .mx-1 {
+    margin-left: 0.25rem !important;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.275rem 0.5em;
+    font-size: 75%;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.3125rem;
+    transition: all .2s ease-in-out;
+}
+
+.pr-3, .px-3 {
+    padding-right: 1rem !important;
+}

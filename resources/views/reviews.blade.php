@@ -1,10 +1,16 @@
 @extends('layouts.index',[
-    'title' => "Top $productInfo->Num_products_article Best $productInfo->Title of ".date('Y')." (Reviews) | Site.com",
+    'title' => "Top $productInfo->Num_products_article Best $productInfo->Title of ".date('Y')." (Reviews) | northeastorchestra.org",
     'description' => "What are the best $productInfo->Title in ".date('Y')."? We analyzed $productInfo->Num_reviews dedicated $productInfo->Title reviews to do the research for you.",
     'section' => $productInfo->Sub_category,
     'published_time' => $productInfo->created_at,
     'modified_time' => $productInfo->updated_at,
     'image' => 'https://northeastorchestra.org'.$products[0]->ta_picture,
+    'type' => 'article',
+    'card' => 'summary_large_image',
+    'site' => '@northeastorchestra.org',
+    'title_t' => "Top $productInfo->Num_products_article Best $productInfo->Title of ".date('Y')." (Reviews) | northeastorchestra.org",
+    'description_t' => "What are the best $productInfo->Title in ".date('Y')."? We analyzed $productInfo->Num_reviews dedicated $productInfo->Title reviews to do the research for you.",
+    'image_t' => 'https://northeastorchestra.org'.$products[0]->ta_picture,
 ])
 @section('content')
 
@@ -16,25 +22,37 @@
             <div class="row mb-1">
                 <div class="col-md-8 mb-md-0">
                     <h1 class="h2">
-                        <a class="text-dark" href="{{$productInfo->URL}}">
                             Best {{$productInfo->Title}}
-                        </a>
                     </h1>
                 </div>
-
+                <div class="col-md-4">
+                    <div class="d-flex justify-content-md-end align-items-center social-share-action pt-2">
+                        <span class="btn btn-xs btn-icon btn-soft-secondary rounded-circle mr-2 sb-facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </span>
+                        <span class="btn btn-xs btn-icon btn-soft-secondary rounded-circle mr-2 sb-twitter">
+                            <i class="fab fa-twitter"></i>
+                        </span>
+                        <span class="btn btn-xs btn-icon btn-soft-secondary rounded-circle mr-2 sb-pinterest">
+                            <i class="fab fa-pinterest"></i>
+                        </span>
+                        <span class="btn btn-xs btn-icon btn-soft-secondary rounded-circle mr-2 sb-linkedin">
+                            <i class="fab fa-linkedin"></i>
+                        </span>
+                    </div>
+                </div>
             </div>
             <div class="py-2 mb-0 pb-4 text-nowrap small">
-                <i class="far fa-clock"></i>
-                Last Updated:
-                {{$productInfo->getDataString()}}
+                <p style="white-space: normal!important"><i class="bi bi-person-check"></i> By <strong>{{$author->Name}}</strong> | <i class="far fa-clock"></i>
+                Last Updated on
+                {{$productInfo->getDataString()}}</p>
             </div>
         </div>
     </div>
-
     @if ($productsTop3->count() == 3)
     <div class="container mb-5 bg-dark rounded" id="quick-pick">
         <div class="mx-lg-auto px-2 px-md-8 px-lg-10 py-5">
-            <h3 class="pt-3 pb-4 text-white text-center"><span class="text-warning">At a Glance: </span>Our Top Picks</h3>
+            <h3 class="pt-3 pb-4 text-white text-center"><span class="text-warning">In Hurry? </span>Editor's Choice:</h3>
             <div class="row">
                 @foreach($productsTop3 as $product)
                 <div class="col-sm-12 col-lg-4 mb-3">
@@ -44,7 +62,7 @@
                                 rel="nofollow" target="_blank">
                                 <img style="height: 220px;object-fit: contain;padding: 2rem;" class="card-img-top"
                                     src="{{$product->ta_picture}}"
-                                    alt="{{$product}}"
+                                    alt="{{$product->ta_name}}"
                                     width="162" height="220">
                             </a>
                             <div class="position-absolute top-0 left-0 pt-3 pl-3">
@@ -58,12 +76,12 @@
                         </div>
                         <div class="position-relative max-w-13rem mx-auto mb-2">
                             <img class="img-fluid"
-                                src="https://cdn.findthisbest.com/assets/svg/illustrations/review-rating-shield.svg"
-                                alt="ftb score rating icon">
+                                src="/assets/svg/illustrations/review-rating-shield.svg"
+                                alt="TR score rating icon">
                             <span
                                 class="position-absolute top-0 right-0 left-0 z-index-2 text-white font-size-2 font-weight-bold mt-2">{{$product->score}}</span>
-                            <div class="small pt-2">FTB Score <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-html="true"
-                                    title="FTB Score is our proprietary scoring system that helps us evaluate each product on a scale of 1 to 10. The score is based on product features, online popularity, price, brand reputation, and other expert reviews."></i>
+                            <div class="small pt-2">TR Score <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-html="true"
+                                    title="TR Score was created through our research into consumer purchasing patterns as well as interviewing company representatives from key industries. It takes into account the features, trustworthiness, price with other factors which all come together in one number."></i>
                             </div>
                         </div>
                         <div class="card-footer border-0 pt-3 pb-4 px-4">
@@ -71,21 +89,20 @@
                             @if($product->a_url != "null")
                             <a class="btn btn-sm btn-outline-primary btn-pill transition-3d-hover"
                                 href="{{$product->a_url}}"
-                                rel="nofollow" target="_blank"><i class="fas fa-check-circle mr-1"></i> CLICK FOR PRICE <i
+                                rel="nofollow" target="_blank">View on Amazon<i
                                     class="fas fa-angle-right ml-1"></i></a>
 
                             <a class="mt-2 btn btn-sm btn-outline-primary btn-pill transition-3d-hover"
                                href="{{$product->t_url}}"
-                               rel="nofollow" target="_blank"><i class="fas fa-check-circle mr-1"></i> CLICK FOR PRICE <i
+                               rel="nofollow" target="_blank">View on Thomann <i
                                     class="fas fa-angle-right ml-1"></i></a>
                             @else
                                 <a class="mt-2 btn btn-sm btn-outline-primary btn-pill transition-3d-hover"
                                    href="{{$product->t_url}}"
-                                   rel="nofollow" target="_blank"><i class="fas fa-check-circle mr-1"></i> CLICK FOR PRICE <i
+                                   rel="nofollow" target="_blank">View on Thomann <i
                                         class="fas fa-angle-right ml-1"></i></a>
                             @endif
-                            <a class="d-block mt-2" href="#{{$product->Item_number}}"><span class="text-muted small">Read
-                                    Review</span></a>
+                            <a class="d-block mt-2" href="#{{$product->Item_number}}"><span class="text-muted small">Read Our Review</span></a>
                         </div>
                     </div>
                     <div class="card border shadow-none text-center h-100 d-lg-none p-3">
@@ -96,7 +113,7 @@
                                     rel="nofollow" target="_blank">
                                     <img class="avatar-img"
                                          src="{{$product->ta_picture}}"
-                                         alt="{{$product}}"
+                                         alt="{{$product->ta_name}}"
                                         width="68" height="68"></a>
                             </div>
                             <div class="media-body text-left">
@@ -120,7 +137,7 @@
                 @endforeach
             </div>
             <div class="text-center mt-3">
-                <span class="sdivider sdivider-xs divider-text">Tips</span>
+                <span class="sdivider sdivider-xs divider-text">How To Choose {{$productInfo->Title}}: Methodology</span>
             </div>
             <div class="py-3 font-size-1">
                 <p style="word-break:break-word;">The best <strong>{{$productInfo->Title}}</strong> ranking is based on our detailed
@@ -134,11 +151,10 @@
     @endif
 
     <div class="container mb-8">
-        <p class="small">* Our editing teams independently research, review, and recommend the best products based on extensive data analysis; if
-        you click on the product links, we may earn a commission from qualifying purchases.</p>
+        <p class="small">* Our experienced editors are constantly reviewing the latest news, looking at data analytics in order to recommend only products worth your time and money. As Amazon Associate, we earn from qualifying purchases.</p>
     </div>
     <div class="container bp-container">
-        <h2 class="h3 pt-1 pb-4 text-center">Top {{$products->count()}} {{$productInfo->Title}} Reviews 2021</h2>
+        <h2 class="h3 pt-1 pb-4 text-center">A Detailed List of Top {{$products->count()}} {{$productInfo->Title}} in 2021</h2>
     </div>
 
     <div class="container bp-container">
@@ -150,31 +166,28 @@
                         <div class="flex justify-content-start align-items-center mb-2"
                             style="max-width: 100%;flex-wrap: nowrap;overflow-x: auto;white-space: nowrap;">
                             <small class="badge badge-primary badge-pill">#TOP {{$loop->index+1}}</small>
-
+                            @foreach($product->productLinks($productInfo->Title) as $review)
+                                <a class="badge badge-pill badge-secondary"
+                                   style="background-color: rgba(55,125,255,.1);color: #377dff;"
+                                   href="{{$review->URL}}">
+                                    Best {{$review->Title}}
+                                </a>
+                            @endforeach
                         </div>
                         <h3 class="text-dark line-2-hidden">{{$product->ta_name}}</h3>
                     </div>
                     <div class="flex justify-content-start align-items-center small text-muted mb-2">
-                        @if ($product->option(0) != null)
-                        <div class="d-inline-block mr-2" data-bs-toggle="tooltip" data-placement="bottom"
-                            title="Model">
-                            <i class="fas fa-copyright mr-1"></i>
-                            {{$product->option(0)}}
-                        </div>
-                        @endif
-                        @if ($product->option(1) != null)
-                        <div class="d-inline-block mr-2" data-bs-toggle="tooltip" data-placement="bottom"
-                            title="Dimension">
-                            <i class="fas fa-box mr-1"></i>
-                            {{$product->option(1)}}
-                        </div>
-                        @endif
-                        @if ($product->option(2) != null)
-                        <div class="d-inline-block mr-2" data-bs-toggle="tooltip" data-placement="bottom"
-                            title="Weight">
-                            <i class="fas fa-weight mr-1"></i>
-                            {{$product->option(2)}}
-                        </div>
+                        @if($product->option()->count() > 1)
+                            @foreach($product->option() as $option)
+
+                            <div class="d-inline-block mr-2" data-bs-toggle="tooltip" data-placement="bottom"
+                                title="{{$option[1] ?? ''}}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                                    <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                                </svg>
+                                {{$option[0] ?? ''}}
+                            </div>
+                             @endforeach
                         @endif
                     </div>
                     <div class="px-md-2 mb-md-0 w-100 mt-5">
@@ -183,7 +196,7 @@
                                 rel="nofollow" target="_blank">
                                 <img class="img-fluid lazyload bp-product-thumb"
                                      data-original="{{$product->ta_picture}}" width="162"
-                                    height="220" data-src="{{$product->ta_picture}}"
+                                    height="220" src="{{$product->ta_picture}}"
                                     alt="{{$product->ta_name}}">
                             </a>
                         </div>
@@ -194,7 +207,7 @@
                                 rel="nofollow" target="_blank">
                                 <img class="shadow rounded lazyload card-img-top"
                                      data-original="{{$img}}"
-                                    data-src="{{$img}}"
+                                    src="{{$img}}"
                                     alt="{{$product->ta_name}}"
                                     width="100" height="100">
                             </a>
@@ -203,14 +216,14 @@
                         </div>
                         <div class="text-center pt-5">
                             <h4 class="h5 mb-4">
-                                Reviews for {{$product->ta_brand}}
+                                Reviews for {{$product->ta_brand}} (TA Score)
                                 <i class="fas fa-question-circle small" data-bs-toggle="tooltip" data-placement="top"
-                                    title="FTB Score is our proprietary scoring system that helps us evaluate each product on a scale of 1 to 10. The score is based on product features, online popularity, price, brand reputation, and other expert reviews."></i>
+                                    title="TR Score was created through our research into consumer purchasing patterns as well as interviewing company representatives from key industries. It takes into account the features, trustworthiness, price with other factors which all come together in one number."></i>
                             </h4>
                             <div class="position-relative max-w-13rem mx-auto mb-2">
                                 <img class="img-fluid"
-                                    src="https://cdn.findthisbest.com/assets/svg/illustrations/review-rating-shield.svg"
-                                    alt="ftb score rating icon">
+                                    src="/assets/svg/illustrations/review-rating-shield.svg"
+                                    alt="TR score rating icon">
                                 <span
                                     class="position-absolute top-0 right-0 left-0 z-index-2 text-white font-size-2 font-weight-bold mt-2">{{$product->score}}</span>
                             </div>
@@ -220,13 +233,15 @@
                             @if ($product->a_url != "null")
                             <a class="btn btn-sm btn-primary mb-2 mx-1"
                                 href="{{$product->a_url}}"
-                                rel="nofollow" target="_blank">
-                                <i class="fab fa-amazon mr-1"></i> View on Amazon</a>
+                                rel="nofollow" target="_blank">View on Amazon</a>
+
+                            <a class="btn btn-sm btn-primary mb-2 mx-1"
+                                href="{{$product->t_url}}"
+                                rel="nofollow" target="_blank">View on Thomann</a>
                             @else
                                 <a class="btn btn-sm btn-primary mb-2 mx-1"
                                    href="{{$product->t_url}}"
-                                   rel="nofollow" target="_blank">
-                                    <i class="fab fa-amazon mr-1"></i> View on thomannmusic</a>
+                                   rel="nofollow" target="_blank">View on Thomann</a>
                             @endif
                         </div>
                     </div>
@@ -235,7 +250,7 @@
                     @if($product->audios()->count() > 1)
                         <hr class="my-6">
 
-                        <h4 class="mb-4 h5">Audio</h4>
+                        <h4 class="mb-4 h5">Sound Samples</h4>
                         <div class="line-3-hidden pb-0">
                         @foreach($product->audios() as $audio)
                          @if ($loop->index < 2)
@@ -267,6 +282,7 @@
                     <hr class="my-6">
                     <div style="">
                         <h4 class="mb-4 h5">Features</h4>
+
                         <div class="pb-0 collap collapseCourseDescriptionSection{{$product->Item_number}}">
                             {!! $product->ta_features!!}
                         </div>
@@ -289,7 +305,7 @@
             <div class="col-lg-3 mb-5 mb-md-0">
                 <nav class="card shadow-none bg-light bp-nav">
                     <div class="card-body">
-                        <h5>Top {{$productInfo->Title}}</h5>
+                        <h5>Navigate Our Best {{$productInfo->Title}}</h5>
                         <ul class="nav nav-sm nav-x-0 flex-column">
                             @foreach($productsTop10 as $product)
                             <li class="nav-item line-2-hidden">
@@ -304,7 +320,7 @@
                 </nav>
                 <nav class="card shadow-none bg-light bp-nav mt-3">
                     <div class="card-body">
-                        <h5>Most Popular</h5>
+                        <h5>Also Great</h5>
                         <ul class="nav nav-sm nav-x-0 flex-column">
                             @foreach($productsRandom10 as $product)
                             <li class="nav-item line-2-hidden">
@@ -359,7 +375,7 @@
             </div>
             @endif
             <div class="pt-5">
-                <h3 class="pb-3">Editor's Notes</h3>
+                <h3 class="pb-3">Our Verdict</h3>
                 <p>
                     With so many {{$productInfo->Title}} available, it's difficult to know which one is best. Fortunately, our research team compiled an unbiased list of {{$productInfo->Num_products_article}} best {{$productInfo->Title}} that will fit every budget. During this study there were over {{$productInfo->Num_products_total}} products across {{$productInfo->Num_products_article}} brands. Our verdict: most customers choose {{$productInfo->Title}} with an average price tag of ${{$productInfo->Avg_price}}!
                 </p>
@@ -367,12 +383,12 @@
             <div class="media d-block d-sm-flex align-items-center border-top border-bottom py-5 my-3">
                 <div class="position-relative mx-auto mb-3 mb-sm-0 mr-sm-4" style="width: 100px; height: 100px;">
                     <img class="img-fluid rounded-circle lazyload"
-                        src="storage/{{$author->Avatar}}" width="300" height="300"
+                        src="../storage/{{$author->Avatar}}" width="300" height="300"
                         data-src="{{$author->Avatar}}"
                         alt="{{$author->Name}}">
                 </div>
                 <div class="media-body ml-3">
-                    <small class="d-block small font-weight-bold text-cap">WRITTEN BY</small>
+                    <small class="d-block small font-weight-bold text-cap">ABOUT THE AUTHOR</small>
                     <div class="h3 mb-0">{{$author->Name}}</div>
                     <p class="mb-0">{{$author->Bio}}</p>
                 </div>

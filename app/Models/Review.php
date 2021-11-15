@@ -15,7 +15,7 @@ class Review extends Model
     {
         $item_id = explode(',',$this->Item_numbers);
         $product = Product::where('Item_number',$item_id)->first();
-        return $product->ta_picture;
+        return $product->ta_picture ?? '';
     }
 
     public function getUrlCategory()
@@ -31,5 +31,10 @@ class Review extends Model
         $year = Carbon::parse($this->updated_at)->year;
         return $mon.' '.$day.', '.$year;
     }
-
+    public function authorImage()
+    {
+        $author = $this->Author;
+        $authorObject = Author::where('name',$author)->first();
+        return $authorObject->Avatar;
+    }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.index',[
-    'title' => "$name2 Guide of ".date('Y')." - Reviews by ".request()->getHost(),
-    'description' => "We researched thousands of $name2 products to find the top picks for you. Read this ".date('Y')." ultimate guide before you buy.",
+    'title' => "$name2 | The ".date('Y')." Guide to $name2",
+    'description' => "New to $name2? Our lists will tell you everything you need to know, from our $name2 experts.",
 ])
 @section('content')
 
@@ -10,18 +10,17 @@
     <div class="container space-2">
         <h1 class="h2 mb-3">{{$name2}} List </h1>
         <p class="text-muted">
-            We researched and compared thousands of {{$name2}} to find the top picks for you.
-            Read this 2021 ultimate guide before you buy.
+            New to {{$name2}}? Our lists will tell you everything you need to know, from our {{$name2}} experts.
         </p>
         <div class="row mt-8">
             <div class="col-lg-3 mb-5 mb-lg-0">
                 <div class="mr-lg-3">
                     <div class="navbar-expand-lg navbar-expand-lg-collapse-block navbar-light">
                         <button type="button" class="navbar-toggler btn btn-block border py-3" aria-label="Toggle navigation"
-                            aria-expanded="false" aria-controls="sidebarNav" data-toggle="collapse"
-                            data-target="#sidebarNav">
+                            aria-expanded="false" aria-controls="sidebarNav" data-bs-toggle="collapse"
+                            data-bs-target="#sidebarNav">
                             <span class="d-flex justify-content-between align-items-center">
-                                <span class="h5 mb-0">View all categories</span>
+                                <span class="h5 mb-0 mr-2">View all categories</span>
                                 <span class="navbar-toggler-default">
                                     <svg width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
                                         <path fill="currentColor"
@@ -41,7 +40,7 @@
                         <div id="sidebarNav" class="collapse navbar-collapse">
                             <div class="p-2 p-lg-0">
                                 <div class="mt-3 mt-lg-0">
-                                    <h2 class="h4">{{$name}} Categories</h2>
+                                    <strong class="h4">{{$name}} Categories</strong>
 
                                     @foreach($catsParent as $catParent)
                                     <a class="dropdown-item d-flex justify-content-between align-items-center px-0  {{$name2 == $catParent->Sub_category ? 'active' : ''}}"
@@ -56,6 +55,8 @@
                 </div>
             </div>
             <div class="col-lg-9 column-divider-lg">
+                            <h2 class="h3">Latest</h2>
+
                 <div class="ml-lg-2">
                     <div class="row mb-5">
                         @foreach($cats as $cat)
@@ -67,14 +68,15 @@
                                             href="{{route('reviews.index',['name'=>$cat->URL])}}"><img
                                                 class="avatar-img lazyload"
                                                 data-original="{{$cat->reviewImage()}}"
-                                                src="{{$cat->reviewImage()}}"
+                                                src="/{{$cat->reviewImage()}}"
                                                 alt="{{$cat->Title}}" width="68" height="68"></a>
                                     </div>
                                     <div class="media-body">
-                                        <h5 class="h6"><a class="text-inherit"
-                                                href="{{route('reviews.index',['name'=>$cat->URL])}}">{{$cat->Title}}</a></h5>
+                                        <h3 class="h6"><a class="text-inherit"
+                                                href="{{route('reviews.index',['name'=>$cat->URL])}}">{{$cat->Title}}</a>
+                                        </h3>
                                         <div class="text-body font-size-1">
-                                            <span>{{number_format($cat->Num_products_total)}} reviews analyzed</span>
+                                            <span>{{number_format($cat->Num_products_total)}} reviews checked</span>
                                         </div>
                                     </div>
                                 </div>
@@ -88,4 +90,14 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script src="/assets/vendor/hs-go-to/dist/hs-go-to.min.js"></script>
+    <script>
+        (function() {
+            // INITIALIZATION OF GO TO
+            // =======================================================
+            new HSGoTo('.js-go-to')
+        });
+    </script>
 @endsection

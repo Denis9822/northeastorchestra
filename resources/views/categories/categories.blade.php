@@ -1,6 +1,6 @@
 @extends('layouts.index',[
-    'title' => "All Categories of Reviews - FindThisBest",
-    'description' => "All categories to help you find the best: Electronics, Patio, Lawn & Garden Hot, Sports & Outdoors Hot and so on.",
+    'title' => "All Categories | northeastorchestra.org",
+    'description' => "All categories: Guitars and Basses, Drums and Percussion, DJ Equipment, Microphones, Studio and Recording Equipment, etc",
 ])
 @section('content')
 
@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="{{asset('assets/css/category.css') }}" type="text/css" />
 <div class="container space-2">
 
-    <h1 class="h2 mb-8">All Categories to Help You Find The Best</h1>
+    <h1 class="h2 mb-8">All Categories</h1>
     <div class="card-sm-columns card-sm-2-count card-lg-3-count">
         @foreach($cat as $category)
         <div class="navbar-vertical mb-5 mr-5">

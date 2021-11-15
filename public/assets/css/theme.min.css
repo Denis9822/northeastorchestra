@@ -27816,3 +27816,27 @@ a:hover .text-inherit {
     font-size: .875rem;
     margin-top: .5rem
 }
+@media (min-width: 992px) {
+    .space-bottom-lg-2, .space-lg-2 {
+        padding-bottom: 4rem !important;
+    }
+}
+.brand {
+    width: 100%;
+    max-width: 7.5rem;
+}
+.navbar-brand-footer img {
+    max-width: 12rem;
+}
+footer .nav-sm .nav-link
+{
+    padding-left: 0;
+}
+.header_index .dropdown-toggle::after
+{
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' fill='rgba(255, 255, 255, 0.7)' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.72 15.78a.75.75 0 01-.53.22h-.38a.77.77 0 01-.53-.22l-5.13-5.14a.5.5 0 010-.71l.71-.71a.49.49 0 01.7 0L12 13.67l4.44-4.45a.5.5 0 01.71 0l.7.71a.5.5 0 010 .71z'/%3E%3C/svg%3E") no-repeat 100%/1rem 1rem !important;
+}
+.scale-down
+{
+    object-fit: scale-down !important;
+}
