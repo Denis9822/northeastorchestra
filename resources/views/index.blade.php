@@ -239,7 +239,7 @@
                                     <a class="nav-link" style="padding:.625rem .95rem;" href="{{route('category.directory',['letter' => 'e'])}}">E</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link}" style="padding:.625rem .95rem;" href="{{route('category.directory',['letter' => 'f'])}}">F</a>
+                                    <a class="nav-link" style="padding:.625rem .95rem;" href="{{route('category.directory',['letter' => 'f'])}}">F</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" style="padding:.625rem .95rem;" href="{{route('category.directory',['letter' => 'g'])}}">G</a>
