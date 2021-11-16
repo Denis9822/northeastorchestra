@@ -1,9 +1,8 @@
 @extends('layouts.index',[
-    'title' => "$post->Title | northeastorchestra.org",
-    'description' => "$post->Description",
+    'title' => "$post1->Title | northeastorchestra.org",
+    'description' => "$post1->Description",
 ])
 @section('content')
-
     @include('layouts.breadcrumb', ['deep' => '5'])
 
     <link rel="stylesheet" href="{{asset('assets/css/post.css') }}" type="text/css"/>
@@ -11,7 +10,7 @@
     <div class="container space-top-2 space-bottom-2">
         <div class="w-lg-75 mx-lg-auto">
             <div class="mb-4">
-                <h1 class="h2">{{$post->Title}}</h1>
+                <h1 class="h2">{{$post1->Title}}</h1>
             </div>
 
             <div class="border-top border-bottom py-4 mb-5">
@@ -20,14 +19,14 @@
                         <div class="media align-items-center">
                             <div class="avatar avatar-circle">
                                 <img class="avatar-img lazyload"
-                                     src="/storage/{{$post->authorImage()}}" width="300"
+                                     src="/storage/{{$post1->authorImage()}}" width="300"
                                      height="300"
-                                     data-src="/storage/{{$post->authorImage()}}"
-                                     alt="{{$post->Author}} Avatar">
+                                     data-src="/storage/{{$post1->authorImage()}}"
+                                     alt="{{$post1->Author}} Avatar">
                             </div>
                             <div class="media-body font-size-1 ml-3">
-                                {{$post->Author}}
-                                <span class="d-block text-muted">Last Updated: {{$post->getDataString()}}</span>
+                                {{$post1->Author}}
+                                <span class="d-block text-muted">Last Updated: {{$post1->getDataString()}}</span>
                             </div>
                         </div>
                     </div>
@@ -53,7 +52,7 @@
 
         </div>
         <div class="w-lg-75 mx-lg-auto article-content">
-            {!!$post->Text  !!}
+            {!!$post1->Text  !!}
         </div>
         <div class="w-lg-75 mx-lg-auto">
 
@@ -80,19 +79,15 @@
 
             <div class="media align-items-center border-top border-bottom py-5 my-8">
                 <div class="avatar avatar-circle avatar-xl">
-                    <img class="avatar-img lazyload" src="/storage/{{$post->authorImage()}}"
+                    <img class="avatar-img lazyload" src="/storage/{{$post1->authorImage()}}"
                          width="300" height="300"
-                         data-src="/storage/{{$post->authorImage()}}"
-                         alt="{{$post->Author}} Avatar">
+                         data-src="/storage/{{$post1->authorImage()}}"
+                         alt="{{$post1->Author}} Avatar">
                 </div>
                 <div class="media-body ml-3">
                     <small class="d-block small font-weight-bold text-cap">Written by</small>
-                    <h4 class="h3 mb-1">{{$post->Author}}</h4>
-                    <p class="mb-0">Sarah Cole is a contributing writer and editor on <span class="skimlinks-unlinked">findthisbest.com</span>.
-                        She specializes in writing articles in various fields. Her work has spanned topics that include
-                        home product reviews, social media research, and has appeared in publications such as The
-                        Spruce, Wirecutter, and VeryWell, among others. She has also been involved in the financial
-                        industry, and she has many creative and unique insights when it comes to articles.</p>
+                    <h4 class="h3 mb-1">{{$post1->Author}}</h4>
+                    <p class="mb-0">{{$post1->authorBio()}}</p>
                 </div>
             </div>
 

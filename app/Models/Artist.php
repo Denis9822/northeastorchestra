@@ -25,4 +25,10 @@ class Artist extends Model
          $authorObject = Author::where('name',$author)->first();
          return $authorObject->Avatar;
     }
+    public function authorBio()
+    {
+        $author = $this->Author;
+        $authorObject = Author::where('name',$author)->first();
+        return $authorObject->Bio;
+    }
 }

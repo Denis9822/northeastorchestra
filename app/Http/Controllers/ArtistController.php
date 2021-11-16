@@ -17,12 +17,4 @@ class ArtistController extends Controller
         return view('artists.blog',compact('category','posts','post1'));
     }
 
-    public function post($name)
-    {
-        $post = Artist::where('URL',$name)->first();
-        if ($post == false)
-            abort(404);
-        $relatedPost = Artist::where('Cat',$post->Cat)->where('Type',0)->where('Title','<>',$post->Title)->inRandomOrder()->limit(4)->get();
-        return view('artists.post',compact('post','relatedPost'));
-    }
 }
