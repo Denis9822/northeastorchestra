@@ -164,12 +164,12 @@
                 <div class="bp-cards card border p-3 p-lg-5 mb-5" id="{{$product->Item_number}}">
                     <div class="mb-2">
                         <div class="flex justify-content-start align-items-center mb-2"
-                            style="max-width: 100%;flex-wrap: nowrap;overflow-x: auto;white-space: nowrap;">
+                            style="max-width: 100%;flex-wrap: nowrap;overflow-x: auto;">
                             <small class="badge badge-primary badge-pill">#TOP {{$loop->index+1}}</small>
                             @foreach($product->productLinks($productInfo->Title) as $review)
                                 <a class="badge badge-pill badge-secondary"
                                    style="background-color: rgba(55,125,255,.1);color: #377dff;"
-                                   href="{{$review->URL}}">
+                                   href="/{{$review->URL}}">
                                     Best {{$review->Title}}
                                 </a>
                             @endforeach
@@ -177,9 +177,9 @@
                         <h3 class="text-dark line-2-hidden">{{$product->ta_name}}</h3>
                     </div>
                     <div class="flex justify-content-start align-items-center small text-muted mb-2">
-                        @if($product->option()->count() > 1)
+                        @if($product->option()->count() > 0)
                             @foreach($product->option() as $option)
-
+                            @if(isset($option[1]))
                             <div class="d-inline-block mr-2" data-bs-toggle="tooltip" data-placement="bottom"
                                 title="{{$option[1] ?? ''}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
@@ -187,6 +187,7 @@
                                 </svg>
                                 {{$option[0] ?? ''}}
                             </div>
+                            @endif
                              @endforeach
                         @endif
                     </div>
@@ -442,6 +443,30 @@
             })
 
         })
+    </script>
+    <script>
+        function socialWindow(t) {
+            var e = (screen.width - 570) / 2,
+                s = "menubar=no,toolbar=no,status=no,width=570,height=570,top=" + (screen.height - 570) / 2 + ",left=" + e;
+            window.open(t, "NewWindow", s)
+        }
+
+        function setShareLinks() {
+            var t = encodeURIComponent(document.URL),
+                e = encodeURIComponent(jQuery("meta[property='og:title']").attr("content")),
+                s = encodeURIComponent(jQuery("meta[property='og:image']").attr("content"));
+            jQuery(".social-share-action .sb-facebook").on("click", function () {
+                socialWindow("https://www.facebook.com/sharer.php?u=" + t)
+            }), jQuery(".social-share-action .sb-twitter").on("click", function () {
+                socialWindow("https://twitter.com/intent/tweet?url=" + t + "&text=" + e)
+            }), jQuery(".social-share-action .sb-pinterest").on("click", function () {
+                socialWindow("https://www.pinterest.com/pin/create/button/?url=" + t + "&description=" + e + "&media=" + s)
+            }), jQuery(".social-share-action .sb-linkedin").on("click", function () {
+                socialWindow("https://www.linkedin.com/shareArticle?mini=true&url=" + t)
+            })
+        }
+
+        setShareLinks();
     </script>
 @endsection
 

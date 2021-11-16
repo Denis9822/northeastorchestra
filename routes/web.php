@@ -20,7 +20,6 @@ use App\Http\Controllers\MainController;
 Route::get('/', [MainController::class, 'index'])->name('index');
 
 Route::get('/artists', [ArtistController::class, 'blog'])->name('blog');
-Route::get('/artist/{name}', [ArtistController::class, 'post'])->name('post');
 
 Route::get('/brand', [BrandController::class, 'brand'])->name('brand');
 Route::get('/brand/{name}', [BrandController::class, 'brand_name'])->name('brand.name');

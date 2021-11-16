@@ -101,7 +101,7 @@
     <div class="container">
         <div class="w-lg-75 border-top space-2 mx-lg-auto">
             <div class="mb-3 mb-sm-5">
-                <h3>Related articles</h3>
+                <h3>More artists</h3>
             </div>
             <div class="row">
                 @foreach($relatedPost as $post)
@@ -111,7 +111,7 @@
                             <div class="col-6">
                                 <h4 class="mb-0">
                                     <a class="text-inherit"
-                                       href="{{route('post',['name' => $post->URL])}}">{{$post->Title}}</a>
+                                       href="/{{$post->URL}}">{{$post->Title}}</a>
                                 </h4>
                             </div>
                             <div class="col-5">
@@ -127,5 +127,30 @@
             </div>
         </div>
     </div>
+@section('script')
+    <script>
+        function socialWindow(t) {
+            var e = (screen.width - 570) / 2,
+                s = "menubar=no,toolbar=no,status=no,width=570,height=570,top=" + (screen.height - 570) / 2 + ",left=" + e;
+            window.open(t, "NewWindow", s)
+        }
 
+        function setShareLinks() {
+            var t = encodeURIComponent(document.URL),
+                e = encodeURIComponent(jQuery("meta[property='og:title']").attr("content")),
+                s = encodeURIComponent(jQuery("meta[property='og:image']").attr("content"));
+            jQuery(".social-share-action .sb-facebook").on("click", function () {
+                socialWindow("https://www.facebook.com/sharer.php?u=" + t)
+            }), jQuery(".social-share-action .sb-twitter").on("click", function () {
+                socialWindow("https://twitter.com/intent/tweet?url=" + t + "&text=" + e)
+            }), jQuery(".social-share-action .sb-pinterest").on("click", function () {
+                socialWindow("https://www.pinterest.com/pin/create/button/?url=" + t + "&description=" + e + "&media=" + s)
+            }), jQuery(".social-share-action .sb-linkedin").on("click", function () {
+                socialWindow("https://www.linkedin.com/shareArticle?mini=true&url=" + t)
+            })
+        }
+
+        setShareLinks();
+    </script>
+@endsection
 @endsection

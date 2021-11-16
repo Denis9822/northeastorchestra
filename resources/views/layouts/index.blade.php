@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{asset('assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.css') }}"
         type="text/css" />
     <link rel="stylesheet" href="{{asset('assets/css/theme.min.css') }}" type="text/css" />
-    <link rel="shortcut icon" type="image/x-icon" href="/storage/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="https://northeastorchestra.org/storage/favicon.ico">
     <!-- Meta -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -56,9 +56,9 @@
                 <!-- Default Logo -->
                 <a class="navbar-brand" href="/" aria-label="Front">
                     @if(isset($header))
-                    <img src="https://cdn.findthisbest.com/assets/svg/logos/logo-ftb3.svg" alt="Logo" width="176" height="39">
+                    <img src="https://northeastorchestra.org/storage/logo-2.svg" alt="Logo" width="199" height="39">
                     @else
-                        <img src="https://cdn.findthisbest.com/assets/svg/logos/logo-ftb.svg" alt="Logo" width="176" height="39">
+                        <img src="https://northeastorchestra.org/storage/logo-1.svg" alt="Logo" width="199" height="39">
                     @endif
                 </a>
                 <!-- End Default Logo -->
@@ -92,12 +92,12 @@
                             <!-- End Dropdown -->
 
                             <li class="hs-has-mega-menu nav-item">
-                                <a id="landingsMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle active" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Best Products</a>
+                                <a id="landingsMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle active" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
 
                                 <!-- Mega Menu -->
                                 <div class="hs-mega-menu dropdown-menu w-100 hs-position-right hs-mega-menu-desktop-lg animated" aria-labelledby="landingsMegaMenu" style="min-width: 30rem; animation-duration: 300ms; display: none;">
                                     <div class="navbar-dropdown-menu-inner">
-                                        <span class="dropdown-header">Products Categories</span>
+                                        <span class="dropdown-header"><a href="/categories">All Categories</a></span>
 
 
                                             <div class="col-auto mb-3 mb-sm-0 d-flex flex-wrap">
@@ -130,31 +130,30 @@
 
                             <div class="mb-4">
                                 <a href="/" aria-label="logo" class="navbar-brand-footer">
-                                    <img class="brand" src="https://cdn.findthisbest.com/assets/svg/logos/logo-ftb.svg" alt="Logo" width="192" height="43">
+                                    <img class="brand" src="https://northeastorchestra.org/storage/logo-1.svg" alt="Logo" width="199" height="39">
                                 </a>
                             </div>
 
-                            <p class="pb-2 pb-sm-3">FindThisBest aims to create a platform to help you make better shopping decisions
-                                with less time and energy. Earning our users' trust is central to what we do.</p>
+                            <p class="pb-2 pb-sm-3">Finding the best musical instruments online has never been easier. northeastorchestra.org features everything you need to sound your best & thrive in the modern music industry.</p>
                             <ul class="list-inline mb-0">
 
                                 <li class="list-inline-item">
-                                    <a class="btn btn-xs btn-icon btn-soft-secondary" target="_blank" rel="nofollow noopener noreferrer" href="https://www.facebook.com/findthisbest/">
+                                    <a class="btn btn-xs btn-icon btn-soft-secondary" target="_blank" rel="nofollow noopener noreferrer" href="/">
                                         <i class="fab fa-facebook-f"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="btn btn-xs btn-icon btn-soft-secondary" target="_blank" rel="nofollow noopener noreferrer" href="https://twitter.com/findthisbest">
+                                    <a class="btn btn-xs btn-icon btn-soft-secondary" target="_blank" rel="nofollow noopener noreferrer" href="/">
                                         <i class="fab fa-twitter"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="btn btn-xs btn-icon btn-soft-secondary" target="_blank" rel="nofollow noopener noreferrer" href="https://www.youtube.com/channel/UCVPuhMYRP052ikX0HZJWj9A/about">
+                                    <a class="btn btn-xs btn-icon btn-soft-secondary" target="_blank" rel="nofollow noopener noreferrer" href="/">
                                         <i class="fab fa-youtube"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="btn btn-xs btn-icon btn-soft-secondary" target="_blank" rel="nofollow noopener noreferrer" href="https://www.pinterest.com/findthisbest/boards/">
+                                    <a class="btn btn-xs btn-icon btn-soft-secondary" target="_blank" rel="nofollow noopener noreferrer" href="/">
                                         <i class="fab fa-pinterest"></i>
                                     </a>
                                 </li>
@@ -162,7 +161,7 @@
                             </ul>
                         </div>
                         <div class="col-6 col-lg-3 mb-5 mb-lg-0">
-                            <h5>Services</h5>
+                            <h5>Visit</h5>
                             <ul class="nav nav-sm nav-x-0 flex-column">
                                 <li class="nav-item"><a class="nav-link" href="{{route('category.index')}}">Categories</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{route('category.directory')}}">Lists</a></li>
@@ -170,7 +169,7 @@
                             </ul>
                         </div>
                         <div class="col-6 col-lg-3 mb-5 mb-lg-0">
-                            <h5>Company</h5>
+                            <h5>About</h5>
                             <ul class="nav nav-sm nav-x-0 flex-column">
                                 @foreach($pages as $page)
                                 <li class="nav-item"><a class="nav-link" href="{{$page->URL}}">{{$page->Title}}</a></li>
@@ -181,17 +180,12 @@
                     </div>
                 </div>
                 <hr class="my-0">
+                <br>
                 <div class="space-1">
 
                     <div class="w-md-75 text-lg-center mx-lg-auto">
-                        <p class="text-muted small">© <a class="text-muted" href="https://www.findthisbest.com" target="_blank" rel="noopener">FINDTHISBEST</a>. 2021 FTB. All rights reserved.</p>
-                        <p class="text-muted small">When you visit or interact with our sites, services or tools, we
-                            or our authorised service providers may use cookies for storing information to help provide you with
-                            a better, faster and safer experience and for marketing purposes.</p>
-                        <p class="text-muted small">As an Amazon Associate we earn from qualifying purchases. We are a participant in the Amazon Services LLC Associates
-                            Program, an affiliate advertising program designed to provide a means for us to earn fees by linking to Amazon.com and
-                            affiliated sites. Amazon, Amazon Prime, the Amazon logo, and the Amazon Prime logo are trademarks of Amazon.com, Inc. or
-                            its affiliates.</p>
+                        <p class="text-muted small">Copyright © 2021 · northeastorchestra.org</p>
+                        <p class="text-muted small">northeastorchestra.org is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to amazon.com. Amazon, the Amazon logo, AmazonSupply, and the AmazonSupply logo are trademarks of Amazon.com, Inc. or its affiliates. As an Amazon Associate we earn affiliate commissions from qualifying purchases.</p>
                     </div>
 
                 </div>

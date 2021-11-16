@@ -27,6 +27,10 @@
                         @if ($deep == 6)
                             <li class="breadcrumb-item dms-none" aria-current="page">Brands</li>
                         @endif
+                        @if ($deep == 6.1)
+                            <li class="breadcrumb-item" aria-current="page"><a
+                                    href="{{route('brand')}}">Brands</a></li>
+                        @endif
                         @if ($deep == 7)
                             <li class="breadcrumb-item dms-none" aria-current="page">Lists Directory</li>
                         @endif

@@ -27,7 +27,6 @@ class BrandController extends Controller
         $arr = explode(',',str_replace(' ', '',$brandInfo->Item_numbers));
 
         $products = Product::whereIn('Item_number',$arr) ->orderByRaw(DB::raw("FIELD(Item_number, $brandInfo->Item_numbers)"))->get();
-
         $scores = explode(',', $brandInfo->Item_scores);
         foreach ($products as $key => $prod)
             $prod->score = $scores[$key];

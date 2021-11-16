@@ -2,7 +2,10 @@
     position: absolute;
 }
 
-
+body,html
+{
+    overflow-x:hidden !important;
+}
 
 @media (min-width: 768px) {
     .space-bottom-md-4, .space-md-4 {

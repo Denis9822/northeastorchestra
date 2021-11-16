@@ -1,6 +1,6 @@
 @extends('layouts.index',[
-    'title' => "Top Product Reviews To Help You Make Better Decisions | northeastorchestra.org",
-    'description' => "Northeastorchestra analyzes millions of products reviews to recommend the best choice of products. We help our users make better shopping decisions.",
+    'title' => "Best Musical Instruments - Top Reviews In 2021 | northeastorchestra.org",
+    'description' => "Expert music gear and equipment reviews. Don't know what kind of gear you need? Get personal recommendations from our biggest music nerds.",
     'header' => 2,
 ])
 @section('content')
@@ -20,7 +20,7 @@
                             <span class="text-indigo ">
                                 <span class="js-typedjs"
                                       data-hs-typed-options='{
-                                        "strings": ["laptop", "camera", "headphone", "shoes"],
+                                        "strings": ["guitars", "drums", "microphones", "DJ equipment"],
                                         "typeSpeed": 90,
                                         "loop": true,
                                         "backSpeed": 30,
@@ -28,7 +28,7 @@
                                       }'></span>
                               </span>
                         </h1>
-                        <p class="text-white-70 mb-4">Check out our reviews before buying anything<br>We aim to help you make better shopping decisions</p>
+                        <p class="text-white-70 mb-4">Check out our tests before buying anything<br>From Studio Equipment to Traditional Instruments we do research for you</p>
                     </div>
                     <form action="/search">
                         <div class="card p-2 mb-3">
@@ -47,34 +47,11 @@
                     </form>
                 </div>
             </div>
-
-            <figure class="position-absolute top-0 left-0 w-60">
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1246 1078">
-                    <g opacity=".4">
-                        <linearGradient id="doubleEllipseTopLeftID1" gradientUnits="userSpaceOnUse" x1="2073.5078" y1="1.7251" x2="2273.4375" y2="1135.5818" gradientTransform="matrix(-1 0 0 1 2600 0)">
-                            <stop offset="0.4976" style="stop-color:#559bff"></stop>
-                            <stop offset="1" style="stop-color:#377DFF"></stop>
-                        </linearGradient>
-                        <polygon fill="url(#doubleEllipseTopLeftID1)" points="519.8,0.6 0,0.6 0,1078 863.4,1078   "></polygon>
-                        <linearGradient id="doubleEllipseTopLeftID2" gradientUnits="userSpaceOnUse" x1="1717.1648" y1="3.779560e-05" x2="1717.1648" y2="644.0417" gradientTransform="matrix(-1 0 0 1 2600 0)">
-                            <stop offset="1.577052e-06" style="stop-color:#559bff"></stop>
-                            <stop offset="1" style="stop-color:#377DFF"></stop>
-                        </linearGradient>
-                        <polygon fill="url(#doubleEllipseTopLeftID2)" points="519.7,0 1039.4,0.6 1246,639.1 725.2,644   "></polygon>
-                    </g>
-                </svg>
-            </figure>
-            <figure class="position-absolute right-0 bottom-0 left-0 mb-n1 w-100">
-                <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 100.1">
-                    <path fill="#fff" d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"></path>
-                </svg>
-            </figure>
-
         </div>
         <div class="container space-2 space-bottom-lg-3 space-bottom-1">
             <div class="row mb-5">
                 <div class="col-6">
-                    <h2 class="h3 mb-0">Featured Articles</h2>
+                    <h2 class="h3 mb-0">Our Favourite Artists</h2>
                 </div>
                 <div class="col-6 text-right">
                     <a class="font-weight-bold" href="{{route('blog')}}">View all <i class="fas fa-angle-right fa-sm ml-1"></i></a>
@@ -87,14 +64,9 @@
                     <article class="card h-100">
                         <div class="card-img-top position-relative">
                             <img class="card-img-top" src="{{$artist->Img}}" alt="{{$artist->Title}}" style="height: 220px;">
-                            <figure class="ie-curved-y position-absolute right-0 bottom-0 left-0 mb-n1">
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 100.1">
-                                    <path fill="#fff" d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"></path>
-                                </svg>
-                            </figure>
                         </div>
                         <div class="card-body">
-                            <h3><a class="text-inherit" href="{{route('post',['name' => $artist->URL])}}">{{$artist->Title}}</a></h3>
+                            <h3><a class="text-inherit" href="/{{$artist->URL}}">{{$artist->Title}}</a></h3>
                             <p>{{$artist->Description}}</p>
                         </div>
                         <div class="card-footer border-0 pt-0">
@@ -119,8 +91,8 @@
         <div class="bg-light">
             <div class="container space-sm-2 space-bottom-lg-3 space-bottom-1">
                 <div class="w-md-80 text-center mx-md-auto mb-9 pt-5">
-                    <h2>Featured Topics</h2>
-                    <p>Advice, staff picks, and more. Let us help you.</p>
+                    <h2>Latest From TRecords</h2>
+                    <p>We analyzed thousands of articles and customer reviews to find the top-rated products at today’s lowest prices. Get trusted advice and in-depth reporting on what matters most.</p>
                 </div>
 
                 <div class="row mb-5">
@@ -140,10 +112,10 @@
                                 </small>
                                 <div class="mb-3">
                                     <div class="h4">
-                                        <a class="text-inherit" href="{{$review->URL}}">{{$review->Title}}</a>
+                                        <a class="text-inherit" href="{{$review->URL}}">{{$review->Preview_title}}</a>
                                     </div>
                                 </div>
-                                <p class="bp-summary">{{$review->Preview_title}}</p>
+                                <p class="bp-summary">{{$review->Description}}</p>
                             </div>
                             <div class="card-footer border-0 pt-0">
                                 <div class="d-flex justify-content-between align-items-center">
@@ -163,23 +135,23 @@
                 </div>
 
                 <div class="text-center">
-                    <a class="font-weight-bold" href="{{route('category.directory')}}">See All Featured Lists <i class="fa fa-angle-right fa-sm ml-1"></i></a>
+                    <a class="font-weight-bold" href="{{route('category.directory')}}">View All Posts <i class="fa fa-angle-right fa-sm ml-1"></i></a>
                 </div>
             </div>
         </div>
 
 
-        <div class="content-space-b-2 content-space-b-lg-3 bg-img-start" style="background: url(../assets/svg/components/shape-5.svg) center no-repeat;">
+        <div class="content-space-b-2 content-space-b-lg-3 bg-img-start" style="background: url(../assets/svg/components/shape-5.svg) center no-repeat; background-color:white;">
             <div class="position-relative">
                 <div class="container content-space-2">
                     <div class="row align-items-md-center mb-7">
                         <div class="col-md-6 mb-4 mb-md-0">
-                            <h2>Check Out Our Newest Buying Guides</h2>
+                            <h2>Popular Buying Guides</h2>
                         </div>
                         <!-- End Col -->
 
                         <div class="col-md-6 text-md-end">
-                            <a class="link" href="{{route('category.index')}}">See all Guides <i class="bi-chevron-right small ms-1"></i></a>
+                            <a class="link" href="{{route('category.index')}}">View all Guides<i class="bi-chevron-right small ms-1"></i></a>
                         </div>
                         <!-- End Col -->
                     </div>
