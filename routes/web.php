@@ -7,6 +7,7 @@ use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\SitemapXmlController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,13 @@ use App\Http\Controllers\MainController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/sitemap.xml', [SitemapXmlController::class,'index'])->name('sitemap.xml');
+Route::get('/sitemap/sitemap-page.xml', [SitemapXmlController::class,'sitemap_page'])->name('sitemap.xml.page');
+Route::get('/sitemap/sitemap-category.xml', [SitemapXmlController::class,'sitemap_category'])->name('sitemap.xml.category');
+Route::get('/sitemap/sitemap-artists.xml', [SitemapXmlController::class,'sitemap_artists'])->name('sitemap.xml.artists');
+Route::get('/sitemap/sitemap-reviews-{id}.xml', [SitemapXmlController::class,'sitemap_reviews'])->name('sitemap.xml.reviews');
+Route::get('/sitemap/sitemap-brand-{id}.xml', [SitemapXmlController::class,'sitemap_brand'])->name('sitemap.xml.brand');
+
 Route::get('/', [MainController::class, 'index'])->name('index');
 
 Route::get('/artists', [ArtistController::class, 'blog'])->name('blog');
@@ -34,4 +42,5 @@ Route::get('/topics-directory/{letter?}', [CategoryController::class, 'category_
 Route::get('/categories/{name}', [CategoryController::class, 'categoriesId'])->name('category.id');
 Route::get('/categories/{name}/{name2}', [CategoryController::class, 'categoriesChild'])->name('category.child');
 Route::get('/{name}/{name2?}', [ReviewsController::class, 'reviews'])->name('reviews.index');
+
 
