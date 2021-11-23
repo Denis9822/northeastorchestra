@@ -399,3 +399,9 @@
 {
     margin-left: 0.5rem !important;
 }
+
+#showmore-triger
+{
+    display: flex;
+    justify-content: center;
+}

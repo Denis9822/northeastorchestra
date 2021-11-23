@@ -25,8 +25,11 @@ class BrandController extends Controller
             abort('404');
 
         $arr = explode(',',str_replace(' ', '',$brandInfo->Item_numbers));
+        $limit = 3;
+        $products = Product::whereIn('Item_number',$arr) ->orderByRaw(DB::raw("FIELD(Item_number, $brandInfo->Item_numbers)"))->limit($limit)->get();
+        $productCount = Product::whereIn('Item_number',$arr) ->orderByRaw(DB::raw("FIELD(Item_number, $brandInfo->Item_numbers)"))->count();
+        $maxpage = ceil($productCount / $limit);
 
-        $products = Product::whereIn('Item_number',$arr) ->orderByRaw(DB::raw("FIELD(Item_number, $brandInfo->Item_numbers)"))->get();
         $scores = explode(',', $brandInfo->Item_scores);
         foreach ($products as $key => $prod)
             $prod->score = $scores[$key];
@@ -34,6 +37,6 @@ class BrandController extends Controller
         $author = Author::where('Category',$brandInfo->Category)->where('Name',$brandInfo->Author)->first();
         $similarBrands10 = Brand::where('Category',$brandInfo->Category)->where('Brand','<>',$brandInfo->Brand)->inRandomOrder()->limit(12)->get();
 
-        return view('brands.brand',compact('brandInfo','products','scores','productsTop3','author','similarBrands10'));
+        return view('brands.brand',compact('brandInfo','products','scores','productsTop3','author','similarBrands10','maxpage','name'));
     }
 }

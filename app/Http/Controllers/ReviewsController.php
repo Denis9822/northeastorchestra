@@ -14,15 +14,25 @@ class ReviewsController extends Controller
     {
         $productInfo = ($name2 != null) ? Review::where('URL',$name.'/'.$name2)->first() : Review::where('URL',$name)->first();
         $productInfoMain = ($name2 != null) ? Review::where('URL',$name)->first() : null;
+
         if($productInfo != null) {
             $arr = explode(',', str_replace(' ', '', $productInfo->Item_numbers));
-            $products = Product::whereIn('Item_number', $arr)->orderByRaw(DB::raw("FIELD(Item_number, $productInfo->Item_numbers)"))->get();
+            $limit = 3;
+            $products = Product::whereIn('Item_number', $arr)->orderByRaw(DB::raw("FIELD(Item_number, $productInfo->Item_numbers)"))->limit($limit)->get();
+            $productsAll = Product::whereIn('Item_number', $arr)->orderByRaw(DB::raw("FIELD(Item_number, $productInfo->Item_numbers)"))->get();
+            $productCount = $productsAll->count();
+            $maxpage = ceil($productCount / $limit);
+
             $scores = explode(',', $productInfo->Item_scores);
             foreach ($products as $key => $prod)
                 $prod->score = $scores[$key];
-            $productsTop3 = $products->take(3);
-            $productsTop10 = ($products->count() > 9) ? $products->take(10) : $products->all();
-            $productsRandom10 = ($products->count() > 9) ? $products->random(10) : $products->random($products->count());
+
+            foreach ($productsAll as $key => $prod)
+                $prod->score = $scores[$key];
+
+            $productsTop3 = $productsAll->take(3);
+            $productsTop10 = ($productsAll->count() > 9) ? $productsAll->take(10) : $productsAll->all();
+            $productsRandom10 = ($productsAll->count() > 9) ? $productsAll->random(10) : $productsAll->random($productCount);
             $author = Author::where('Category', $productInfo->Category)->where('Name', $productInfo->Author)->first();
 
             $featuresTopics = ($name2 == null) ? Review::where('Parent', $productInfo->Title)->get() : Review::where('Parent', $productInfoMain->Title)->where('Title', '<>', $productInfo->Title)->orWhere(function ($q) use ($productInfoMain) {
@@ -31,7 +41,7 @@ class ReviewsController extends Controller
             })->get();
 
             $subCategories = Review::where('Sub_category', $productInfo->Sub_category)->where('Parent', null)->get();
-            return view('reviews', compact('products', 'name', 'productInfo', 'productsTop3', 'author', 'productsTop10', 'productsRandom10', 'featuresTopics', 'subCategories'));
+            return view('reviews', compact('products', 'name', 'productInfo', 'productsTop3', 'author', 'productsTop10', 'productsRandom10', 'featuresTopics', 'subCategories','maxpage','name2'));
         }
         elseif ($post = Artist::where('URL',$name)->first())
         {

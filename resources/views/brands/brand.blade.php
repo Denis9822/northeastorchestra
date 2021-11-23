@@ -160,7 +160,8 @@
 
     <div class="container bp-container">
         <div class="row">
-            <div class="col-lg-9 w-lg-80 mx-lg-auto">
+            <div class="col-lg-9 w-lg-80 mx-lg-auto product_wrap">
+                <div class="cards">
                 @foreach($products as $product)
                     <div class="bp-cards card border p-3 p-lg-5 mb-5" id="{{$product->Item_number}}">
                         <div class="mb-2">
@@ -288,8 +289,11 @@
                         </div>
                     </div>
                 @endforeach
+                </div>
             </div>
-
+            <div id="showmore-triger" data-page="1" data-name="{{$name}}" data-max="{{$maxpage}}">
+                <img src="{{asset('assets/gif/load.gif')}}" alt="">
+            </div>
         </div>
     </div>
 
@@ -351,58 +355,8 @@
     </a>
 @section('script')
     <script src="../assets/vendor/hs-go-to/dist/hs-go-to.min.js"></script>
-    <script>
-        (function() {
-            // INITIALIZATION OF GO TO
-            // =======================================================
-            new HSGoTo('.js-go-to')
-        });
+    <script src="../assets/js/brands.js"></script>
 
-        $('.collapse-rewrite').click(function (){
-            let className = $(this).attr('collapce-first-3');
-            $('.'+className).slideToggle(100);
-        })
-        $('.collapse-rewrite-audio').click(function (){
-
-            let className = $(this).attr('collapce-first-3');
-            $('.'+className).slideToggle(100);
-        })
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-        $('.collap').each(function (index,value){
-            $(this).children().children('.col-features-10').each(function (index,value){
-                if (index>2)
-                    $(this).hide();
-
-            })
-
-        })
-    </script>
-    <script>
-        function socialWindow(t) {
-            var e = (screen.width - 570) / 2,
-                s = "menubar=no,toolbar=no,status=no,width=570,height=570,top=" + (screen.height - 570) / 2 + ",left=" + e;
-            window.open(t, "NewWindow", s)
-        }
-
-        function setShareLinks() {
-            var t = encodeURIComponent(document.URL),
-                e = encodeURIComponent(jQuery("meta[property='og:title']").attr("content")),
-                s = encodeURIComponent(jQuery("meta[property='og:image']").attr("content"));
-            jQuery(".social-share-action .sb-facebook").on("click", function () {
-                socialWindow("https://www.facebook.com/sharer.php?u=" + t)
-            }), jQuery(".social-share-action .sb-twitter").on("click", function () {
-                socialWindow("https://twitter.com/intent/tweet?url=" + t + "&text=" + e)
-            }), jQuery(".social-share-action .sb-pinterest").on("click", function () {
-                socialWindow("https://www.pinterest.com/pin/create/button/?url=" + t + "&description=" + e + "&media=" + s)
-            }), jQuery(".social-share-action .sb-linkedin").on("click", function () {
-                socialWindow("https://www.linkedin.com/shareArticle?mini=true&url=" + t)
-            })
-        }
-
-        setShareLinks();
-    </script>
 @endsection
 
 @endsection

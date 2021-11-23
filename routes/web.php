@@ -9,6 +9,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\SitemapXmlController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\AjaxController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,9 @@ Route::get('/sitemap/sitemap-category.xml', [SitemapXmlController::class,'sitema
 Route::get('/sitemap/sitemap-artists.xml', [SitemapXmlController::class,'sitemap_artists'])->name('sitemap.xml.artists');
 Route::get('/sitemap/sitemap-reviews-{id}.xml', [SitemapXmlController::class,'sitemap_reviews'])->name('sitemap.xml.reviews');
 Route::get('/sitemap/sitemap-brand-{id}.xml', [SitemapXmlController::class,'sitemap_brand'])->name('sitemap.xml.brand');
+
+Route::get('/ajax-reviews/{name}/{name2?}/{id}', [AjaxController::class, 'ajax_reviews'])->name('ajax.reviews');
+Route::get('/ajax-brands/{name}/{id}', [AjaxController::class, 'ajax_brands'])->name('ajax.brands');
 
 Route::get('/', [MainController::class, 'index'])->name('index');
 
