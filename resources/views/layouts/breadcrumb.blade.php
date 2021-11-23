@@ -5,7 +5,7 @@
                 <nav class="d-inline-block rounded" aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-no-gutter font-size-1 mb-0">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        @if ($deep == 1 || $deep == 2 || $deep == 3 || $deep == 4)
+                        @if ($deep == 1 || $deep == 2 || $deep == 3)
                         <li class="breadcrumb-item {{$deep == '1' ? 'active' : ''}}" aria-current="page"><a
                                 href="{{route('category.index')}}">Categories</a></li>
                         @endif
@@ -30,6 +30,7 @@
                         @if ($deep == 6.1)
                             <li class="breadcrumb-item" aria-current="page"><a
                                     href="{{route('brand')}}">Brands</a></li>
+                            <li class="breadcrumb-item active dm-none" aria-current="page">{{$brandInfo->Brand}}</li>
                         @endif
                         @if ($deep == 7)
                             <li class="breadcrumb-item dms-none" aria-current="page">Lists Directory</li>

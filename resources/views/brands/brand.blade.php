@@ -14,7 +14,7 @@
 ])
 @section('content')
 
-    @include('layouts.breadcrumb', ['deep' => '6.1'])
+    @include('layouts.breadcrumb', ['deep' => '6.1','brandInfo' => $brandInfo])
     <link rel="stylesheet" href="{{asset('assets/css/brand.css') }}" type="text/css" />
     <link rel="stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" onload="this.rel='stylesheet'">
     <link rel="stylesheet" href="{{ asset('assets/css/reviews.css') }}" type="text/css" />
@@ -216,21 +216,6 @@
                                     @endforeach
                                 @endif
                             </div>
-                            <div class="text-center pt-5">
-                                <h4 class="h5 mb-4">
-                                    Reviews for {{$product->ta_brand}} (TA Score)
-                                    <i class="fas fa-question-circle small" data-bs-toggle="tooltip" data-placement="top"
-                                       title="TR Score was created through our research into consumer purchasing patterns as well as interviewing company representatives from key industries. It takes into account the features, trustworthiness, price with other factors which all come together in one number."></i>
-                                </h4>
-                                <div class="position-relative max-w-13rem mx-auto mb-2">
-                                    <img class="img-fluid"
-                                         src="/assets/svg/illustrations/review-rating-shield.svg"
-                                         alt="TR score rating icon">
-                                    <span
-                                        class="position-absolute top-0 right-0 left-0 z-index-2 text-white font-size-2 font-weight-bold mt-2">{{$product->score}}</span>
-                                </div>
-                            </div>
-
                             <div class="mt-3 text-center">
                                 @if ($product->a_url != "null")
                                     <a class="btn btn-sm btn-primary mb-2 mx-1"
