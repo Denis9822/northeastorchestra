@@ -8,6 +8,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\SitemapXmlController;
+use App\Http\Controllers\AuthorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,8 @@ Route::get('/sitemap/sitemap-brand-{id}.xml', [SitemapXmlController::class,'site
 Route::get('/', [MainController::class, 'index'])->name('index');
 
 Route::get('/artists', [ArtistController::class, 'blog'])->name('blog');
+
+Route::get('/author/{name}', [AuthorController::class, 'author'])->name('author');
 
 Route::get('/brand', [BrandController::class, 'brand'])->name('brand');
 Route::get('/brand/{name}', [BrandController::class, 'brand_name'])->name('brand.name');

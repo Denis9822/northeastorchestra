@@ -124,7 +124,9 @@
                                     </div>
                                     <div class="avatar-group">
                                         <span class="avatar avatar-xs avatar-circle" data-bs-toggle="tooltip" data-placement="top" title="{{$review->Author}}">
-                                            <img class="avatar-img lazyload" src="/storage/{{$review->authorImage()}}"  alt="{{$review->Author}}Avatar" width="100" height="100">
+                                            <a href="{{route('author',['name' => $review->authorLink()])}}">
+                                                <img class="avatar-img lazyload" src="/storage/{{$review->authorImage()}}"  alt="{{$review->Author}}Avatar" width="100" height="100">
+                                             </a>
                                         </span>
                                     </div>
                                 </div>

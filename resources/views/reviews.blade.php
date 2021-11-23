@@ -394,7 +394,7 @@
                 </div>
                 <div class="media-body ml-3">
                     <small class="d-block small font-weight-bold text-cap">ABOUT THE AUTHOR</small>
-                    <div class="h3 mb-0">{{$author->Name}}</div>
+                    <div class="h3 mb-0"><a href="{{route('author',['name' => $author->URL])}}">{{$author->Name}}</a></div>
                     <p class="mb-0">{{$author->Bio}}</p>
                 </div>
             </div>

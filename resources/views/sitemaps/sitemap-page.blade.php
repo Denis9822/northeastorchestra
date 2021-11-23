@@ -13,7 +13,7 @@
     </url>
      @foreach($authors as $author)
             <url>
-                <loc>{{url($author['URL'] ?? 'author')}}</loc>
+                <loc>{{url('/author/'.$author['URL'] ?? 'author')}}</loc>
                 <lastmod>{{ \Carbon\Carbon::today()->toAtomString() }}</lastmod>
             </url>
      @endforeach

@@ -37,4 +37,10 @@ class Review extends Model
         $authorObject = Author::where('name',$author)->first();
         return $authorObject->Avatar;
     }
+    public function authorLink()
+    {
+        $author = $this->Author;
+        $authorObject = Author::where('name',$author)->first();
+        return $authorObject->URL;
+    }
 }
