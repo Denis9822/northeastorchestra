@@ -217,7 +217,11 @@
                         </div>
                         <div class="text-center pt-5">
                             <h4 class="h5 mb-4">
-                                Reviews for {{$product->ta_brand}} (TA Score)
+                                @if ($product->ta_brand_link != null)
+                                    Reviews for <a href="{{$product->ta_brand_link}}">{{$product->ta_brand}}</a> (TA Score)
+                                @else
+                                    Reviews for {{$product->ta_brand}} (TA Score)
+                                @endif
                                 <i class="fas fa-question-circle small" data-bs-toggle="tooltip" data-placement="top"
                                     title="TR Score was created through our research into consumer purchasing patterns as well as interviewing company representatives from key industries. It takes into account the features, trustworthiness, price with other factors which all come together in one number."></i>
                             </h4>
