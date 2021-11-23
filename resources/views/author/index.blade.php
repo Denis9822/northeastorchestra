@@ -12,7 +12,7 @@
         <div class="border-bottom w-md-75 w-lg-60 space-bottom-2 mx-md-auto">
             <div class="media d-block d-sm-flex">
                 <div class="position-relative mx-auto mb-3 mb-sm-0 mr-sm-4" style="width: 160px; height: 160px;">
-                    <img class="img-fluid rounded-circle" src="/{{$author->Avatar}}" alt="{{$author->Name}} Abels Avatar" width="160" height="160">
+                    <img class="img-fluid rounded-circle" src="/storage/{{$author->Avatar}}" alt="{{$author->Name}} Abels Avatar" width="160" height="160">
                     <img class="bg-white position-absolute bottom-0 right-0 rounded-circle p-1" src="https://cdn.findthisbest.com/assets/svg/illustrations/top-vendor.svg" alt="Icon" width="36" height="36" title="Top Writer">
                 </div>
                 <div class="media-body">
