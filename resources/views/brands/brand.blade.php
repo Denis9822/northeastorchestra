@@ -62,7 +62,7 @@
                                     <a href="{{($product->a_url == "null") ? $product->t_url : $product->a_url}}"
                                        rel="nofollow" target="_blank">
                                         <img style="height: 220px;object-fit: contain;padding: 2rem;" class="card-img-top"
-                                             src="{{$product->ta_picture}}"
+                                             data-original="{{$product->ta_picture}}"
                                              alt="{{$product->ta_name}}"
                                              width="162" height="220">
                                     </a>
@@ -113,7 +113,7 @@
                                            href="{{($product->a_url == "null") ? $product->t_url : $product->a_url}}"
                                            rel="nofollow" target="_blank">
                                             <img class="avatar-img"
-                                                 src="{{$product->ta_picture}}"
+                                                 data-original="{{$product->ta_picture}}"
                                                  alt="{{$product->ta_name}}"
                                                  width="68" height="68"></a>
                                     </div>
@@ -199,7 +199,7 @@
                                    rel="nofollow" target="_blank">
                                     <img class="img-fluid lazyload bp-product-thumb"
                                          data-original="{{$product->ta_picture}}" width="162"
-                                         height="220" src="{{$product->ta_picture}}"
+                                         height="220"
                                          alt="{{$product->ta_name}}">
                                 </a>
                             </div>
@@ -210,7 +210,6 @@
                                            rel="nofollow" target="_blank">
                                             <img class="shadow rounded lazyload card-img-top"
                                                  data-original="{{$img}}"
-                                                 src="{{$img}}"
                                                  alt="{{$product->ta_name}}"
                                                  width="100" height="100">
                                         </a>
