@@ -387,9 +387,9 @@
     }
 }
 @media (max-width: 420px) {
-    .dms-none {
-        display: none;
-    }
+    /*.dms-none {*/
+    /*    display: none;*/
+    /*}*/
 }
 .mb-2
 {
