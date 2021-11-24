@@ -172,7 +172,7 @@
                             <h5>About</h5>
                             <ul class="nav nav-sm nav-x-0 flex-column">
                                 @foreach($pages as $page)
-                                <li class="nav-item"><a class="nav-link" href="{{$page->URL}}">{{$page->Title}}</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/{{$page->URL}}">{{$page->Title}}</a></li>
                                 @endforeach
 
                             </ul>
